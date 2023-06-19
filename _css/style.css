@@ -1,8 +1,8 @@
 :root {
-    --p-01: hsl(198, 90%, 19%);
-    --p-02: hsl(190, 76%, 40%);
-    --p-03: hsl(174, 69%, 68%);
-    --p-04: hsl(186, 59%, 89%);
+    --p-01: hsl(115, 90%, 19%);
+    --p-02: hsl(115, 76%, 40%);
+    --p-03: hsl(115, 69%, 68%);
+    --p-04: hsl(115, 59%, 89%);
 
     --p-white-01: hsl(0, 0%, 96%);
     --p-white-02: hsl(0, 0%, 92%);
@@ -44,7 +44,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
 
-    background-color: var(--p-02);
+    background-color: var(--p-white-01);
 }
 
 footer {
