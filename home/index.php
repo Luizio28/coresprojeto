@@ -21,12 +21,7 @@
     ?>
 
     <main>
-        <h1>Requerimentos</h1>
-
-        <div class="flex-grid">
-            <?php echo_contacts(); ?>
-        </div>
-
+        
     </main>
 
     <?php
