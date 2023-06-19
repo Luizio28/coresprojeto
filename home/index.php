@@ -30,7 +30,7 @@
                         N° de matrícula
                     </label>
 
-                    <input type="text" name="matricula">
+                    <input maxlength="12" type="text" name="matricula" required>
                 </div>
 
                 <div class="flex-row spaced-between">
@@ -38,7 +38,7 @@
                         Senha
                     </label>
 
-                    <input type="password" name="psswd">
+                    <input maxlength="255" type="password" name="psswd" required>
                 </div>
 
                 <div class="flex-row spaced-between">
