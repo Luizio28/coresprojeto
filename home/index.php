@@ -5,8 +5,8 @@
     <?php
     include("../_templates/echoer.php");
 
-    include("contact_reader.php");
-    include("contact_writer.php");
+    include("requests_reader.php");
+    include("resquests_writer.php");
 
     include("../_templates/head.php");
     head_constructor("Contatos");
