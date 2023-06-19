@@ -1,0 +1,172 @@
+:root {
+    --p-01: hsl(198, 90%, 19%);
+    --p-02: hsl(190, 76%, 40%);
+    --p-03: hsl(174, 69%, 68%);
+    --p-04: hsl(186, 59%, 89%);
+
+    --p-white-01: hsl(0, 0%, 96%);
+    --p-white-02: hsl(0, 0%, 92%);
+    --p-white-03: hsl(0, 0%, 88%);
+    --p-white-04: hsl(0, 0%, 51%);
+
+    --p-black-01: hsl(247, 12%, 15%);
+    --p-black-02: hsl(251, 13%, 24%);
+    --p-black-03: hsl(273, 12%, 31%);
+    --p-black-04: hsl(296, 8%, 40%);
+}
+
+@font-face {
+    font-family: mono;
+    src: url(../_fonts/Ubuntu-C.ttf);
+}
+
+* {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: var(--p-black-01);
+}
+
+title {
+    display: none;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    height: 100vh;
+    max-width: 100vw;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--p-02);
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+
+    padding: 1em 0em 1em 0em;
+    max-width: 100vw;
+}
+
+header {
+    color: var(--p-white-04);
+}
+
+header,
+footer {
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw;
+
+    background-color: var(--p-01);
+}
+
+main {
+    height: max-content;
+}
+
+label,
+input,
+p,
+a {
+    margin: 1em;
+}
+
+input,
+select {
+    width: 16em;
+
+    background-color: var(--p-white-02);
+
+    border: 1px solid var(--p-black-04);
+    border-radius: .5em;
+}
+
+
+input[type="submit"] {
+    width: fit-content;
+}
+
+
+input:hover,
+select:hover {
+    background-color: var(--p-white-03);
+    border-color: var(--p-black-03);
+}
+
+.hidden {
+    display: none;
+}
+
+.standard-width {
+    width: 36em;
+}
+
+.box {
+    flex-direction: column;
+
+    max-width: 36em;
+
+    height: fit-content;
+
+    border-radius: .5em;
+    padding: 1em;
+    margin: 1em;
+
+    border: 1px solid var(--p-black-01);
+
+    background-color: var(--p-white-01);
+}
+
+.mono {
+    font: 1em "mono";
+}
+
+.center-abs {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.spaced-between {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.flex-grid {
+    flex-wrap: wrap;
+}
+
+.no-deco {
+    text-decoration: none;
+}
+
+#add {
+    font-size: 4em;
+
+    color: var(--p-white-01);
+
+    background-color: transparent;
+    border: 0;
+}
+
+#add:hover {
+    color: var(--p-black-03);
+}

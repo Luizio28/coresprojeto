@@ -1,1 +1,3 @@
-<p>eae</p>
+<?php
+header("Location: home/");
+exit();
