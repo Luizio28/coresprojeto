@@ -5,8 +5,8 @@
     <?php
     include("../_templates/echoer.php");
 
-    include("requests_reader.php");
-    include("resquests_writer.php");
+    include("../_scripts/requests_reader.php");
+    include("../_scripts/resquests_writer.php");
 
     include("../_templates/head.php");
     head_constructor("Contatos");
@@ -23,17 +23,8 @@
 
     <main>
         <div class="flex-column">
-            <div class="flex-row">
-                <div class="box standard-width">
-                    <p>Para adicionar um novo contato, clique no simbolo de soma</p>
-                </div>
-                <div>
-                    <button onclick="toggle(document.getElementById('create-new'))" id="add">+</button>
-                </div>
-            </div>
-
-            <form id="create-new" class="center-abs flex-column hidden box" method="post">
-                <h1>Novo contato</h1>
+            <form id="create-new" class="center-flex flex-column box" method="post">
+                <h1>Novo requerimento</h1>
 
                 <div class="flex-row spaced-between">
                     <label for="nome">Nome</label>

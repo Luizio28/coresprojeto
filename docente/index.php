@@ -4,8 +4,8 @@
     <?php
     include("../_templates/echoer.php");
 
-    include("requests_reader.php");
-    include("resquests_writer.php");
+    include("../_scripts/requests_reader.php");
+    include("../_scripts/resquests_writer.php");
 
     include("../_templates/head.php");
     head_constructor("Contatos");
