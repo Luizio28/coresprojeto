@@ -20,31 +20,30 @@
     show("../_templates/header.html");
     ?>
 
-<main>
+    <main>
         <div class="flex-column">
             <h1>Login</h1>
 
-            <form method="post" action="/login_kaique/code.php" class="box">
-                <h2>Seja bem-vindo!</h2>
-
+            <form method="post" action="TODO ADD ACTION" class="box">
                 <div class="flex-row spaced-between">
-                    <label for="username">
+                    <label for="matricula">
                         N° de matrícula
                     </label>
 
-                    <input type="text" name="username">
+                    <input type="text" name="matricula">
                 </div>
 
                 <div class="flex-row spaced-between">
-                    <label for="password">
+                    <label for="psswd">
                         Senha
                     </label>
 
-                    <input type="password" name="password">
+                    <input type="password" name="psswd">
                 </div>
 
                 <div class="flex-row spaced-between">
                     <input type="submit" name="send" value="Entrar">
+                    <a href="../newbie/">Não tem conta?</a>
                 </div>
             </form>
         </div>
