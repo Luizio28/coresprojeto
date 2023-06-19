@@ -9,4 +9,8 @@
 <ul>
   Diferenciação entre administrador e discente
 </ul>
+
+<ul>
+seguir esquema de cores 60-30-10
+</ul>
 </li>
