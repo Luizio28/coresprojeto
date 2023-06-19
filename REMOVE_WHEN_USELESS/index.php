@@ -32,12 +32,6 @@
                 </div>
             </div>
 
-            <h1>Contatos</h1>
-
-            <div class="flex-grid">
-                <?php echo_contacts(); ?>
-            </div>
-
             <form id="create-new" class="center-abs flex-column hidden box" method="post">
                 <h1>Novo contato</h1>
 
