@@ -27,16 +27,42 @@
                 <h1>Novo requerimento</h1>
 
                 <div class="flex-row spaced-between">
-                    <label for="nome">Nome</label>
-                    <input maxlength="16" type="text" name="name" required>
+                    <label for="curso">
+                        Objeto do requerimento
+                    </label>
+
+                    <select name="objeto">
+                        <option value="1">Justificativa de falta</option>
+                        <option value="2">Segunda chamada</option>
+                    </select>
                 </div>
+
                 <div class="flex-row spaced-between">
-                    <label for="email">Email</label>
-                    <input maxlength="64" type="email" name="email" required>
+                    <label for="inicio">Data inicial</label>
+                    <input type="date" name="inicio" required>
                 </div>
+
                 <div class="flex-row spaced-between">
-                    <label for="zap"> N° telefone (whatsapp)</label>
-                    <input maxlength="11" type="tel" name="tel" required>
+                    <label for="inicio">Data final</label>
+                    <input type="date" name="termino" required>
+                </div>
+
+                <div class="flex-row spaced-between">
+                    <label for="anexo">Anexo</label>
+                    <input type="file" name="anexo" required>
+                </div>
+
+                <div class="flex-row spaced-between">
+                    <label for="curso">
+                        Objeto do requerimento
+                    </label>
+
+                    <select name="objeto">
+                        <option value="1">Protocolado</option>
+                        <option value="2">Deferido</option>
+                        <option value="3">Indeferido</option>
+                        <option value="4">Concluído</option>
+                    </select>
                 </div>
 
                 <div>

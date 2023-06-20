@@ -36,7 +36,7 @@ create table requerimento(
     termino date not null,
     registro datetime auto not null,
 
-    anexos varbinary(max) not null, 
+    anexo varbinary(max) not null, 
     obs char(255),
     situacao numeric(1) not null
 );
