@@ -4,35 +4,43 @@ function login_attempt()
     extract($_POST);
 
     try {
-        $db_hostname = 'localhost';
-        $db_user = 'root';
-        $db_pass = '';
-        $db_name = 'requerimentos';
+        $server_ip = $_SERVER['SERVER_ADDR'];
+        $is_local = ($server_ip === '127.0.0.1' || $server_ip === '::1');
 
-        $conn = new mysqli($db_hostname, $db_user, $db_pass, $db_name);
+        if ($is_local) {
 
-        $result = $conn->query("SELECT * FROM discente");
-
-        if (!$result) {
-            echo "Error: " . $conn->error;
-        } else {
-            while ($row = $result->fetch_assoc()) {
-                if ($nome == $row['nome']){
-                    header("Location: ../discentes/");//To do, fazer o mesmo com os docentes
-                }
-            }
+            $db_hostname = 'localhost';
+            $db_user = 'root';
+            $db_pass = '';
+            $db_name = 'requerimentos';
+        } else { //nn vou vazar dado de server nem a pau
+            $db_hostname = 'remote_server_ip';
+            $db_user = 'remote_username';
+            $db_pass = 'remote_password';
+            $db_name = 'remote_database';
         }
 
-        $conn->close();
+        $db_connection = new mysqli($db_hostname, $db_user, $db_pass, $db_name);
+
+        $result = $db_connection->query("SELECT * FROM discente");
+
+        while ($row = $result->fetch_assoc()) {
+            if ($nome == $row['nome']) {
+                header("Location: ../discentes/"); //To do, fazer o mesmo com os docentes
+            }
+        }
+        
+        $db_connection->close();
+
     } catch (Throwable $th) {
-        $conn = NULL;
-        echo ("
-            <div class='box flex-column'>
-                <p>
-                    erro nos dados de login
-                </p>
+        echo "
+        <div class='flex-column'>
+            <h1>ERRO</h1>
+            
+            <div class='box'>
+                <p>não foi possível conectar ao servidor</p>
             </div>
-        ");
+        </div>
+        ";
     }
 }
-
