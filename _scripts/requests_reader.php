@@ -59,11 +59,13 @@ function echo_requests()
         $db_connection->close();
     } catch (Throwable $th) {
         echo "
-            <div class='box flex-column'>
-                <p>
-                    não foi possível conectar ao banco de dados :(
-                </p>
+        <div class='flex-column'>
+            <h1>ERRO</h1>
+            
+            <div class='box'>
+                <p>não foi possível conectar ao servidor</p>
             </div>
+        </div>
         ";
     }
 }

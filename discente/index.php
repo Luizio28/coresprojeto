@@ -53,22 +53,7 @@
                     <label for="obs">Observações</label>
                     <textarea name="obs" cols="25" rows="11" maxlength="255" required></textarea>
                 </div>
-
-                <!--
-                <div class="flex-row spaced-between">
-                    <label for="curso">
-                        Objeto do requerimento
-                    </label>
-
-                    <select name="objeto">
-                        <option value="1">Protocolado</option>
-                        <option value="2">Deferido</option>
-                        <option value="3">Indeferido</option>
-                        <option value="4">Concluído</option>
-                    </select>
-                </div>
-                -->
-
+                
                 <div>
                     <input type="submit" name="send" value="criar">
                 </div>
