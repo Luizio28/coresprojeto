@@ -7,7 +7,7 @@
     include "../_scripts/requests_writer.php";
     include "../_templates/head.php";
     
-    head_constructor("Contatos");
+    head_constructor("Novo requerimento");
     ?>
 
     <script src="../_js/toggle.js"></script>

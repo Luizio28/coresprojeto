@@ -5,7 +5,7 @@
     include "../_templates/echoer.php";
     include "../_templates/head.php";
 
-    head_constructor("Contatos");
+    head_constructor("Sign-in");
     ?>
 
     <script src="../_js/toggle.js"></script>
