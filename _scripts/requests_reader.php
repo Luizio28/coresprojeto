@@ -1,5 +1,5 @@
-<?php
-function echo_contacts()
+<?php #https://www.w3schools.com/howto/howto_js_sort_table.asp use isso no futuro
+function echo_requests()
 {
     try {
         $db_hostname = 'localhost';
@@ -13,26 +13,37 @@ function echo_contacts()
 
         if (!$result) {
             echo "Error: " . $conn->error;
-        } else {
-            while ($row = $result->fetch_assoc()) {//To do consertar isso
-                $nome = $row['nome'];
-                $email = $row['email'];
-                $fone = $row['fone'];
-
-                echo '
-                    <div class="box flex-column">
-                        <h1>' . $nome . '</h1>
-                        <div class="flex-row spaced-between">
-                            <p>e-mail</p>   
-                            <p>' . $email . '</p>
-                        </div>
-                        <div class="flex-row spaced-between">
-                            <p>N° telefone</p>
-                            <p>' . "(" . substr($fone, 0, 2) . ") " . substr($fone, 2, 5) . "-" . substr($fone, 7) . '</p>
-                        </div>
-                    </div>
-                ';
-            }
+        } else {echo "
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>discente</th>
+                    <th>objeto</th>
+                    <th>data inicio</th>
+                    <th>data termino</th>
+                    <th>data registro</th>
+                    <th>anexo</th>
+                    <th>observação</th>
+                    <th>situação</th>
+                </tr>
+                ";
+    
+                while ($row = $result->fetch_assoc()) {
+                echo "
+                <tr>
+                    <th>". $row['id'] ."</th>
+                    <th>". $row['discente_id'] ."</th>
+                    <th>". $row['objeto'] ."</th>
+                    <th>". $row['inicio'] ."</th>
+                    <th>". $row['termino'] ."</th>
+                    <th>". $row['registro'] ."</th>
+                    <th>". $row['anexo'] ."</th>
+                    <th>". $row['obs'] ."</th>
+                    <th>". $row['situacao'] ."</th>
+                </tr>";
+                }
+                echo "
+            </table>";
         }
 
         $conn->close();

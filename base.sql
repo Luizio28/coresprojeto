@@ -3,7 +3,7 @@ use requerimentos;
 
 
 create table administradores(
-    siape numeric(7) primary key
+    siape numeric(7) primary key,
 
     nome char(255) not null,
     email char(255) not null,
@@ -34,10 +34,10 @@ create table requerimento(
     objeto numeric(2) not null,
     inicio date not null,
     termino date not null,
-    registro datetime auto not null,
+    registro datetime default(getdate()) not null,
 
     anexo varbinary(max) not null, 
-    obs char(255),
+    obs char(255) not null,
     situacao numeric(1) not null
 );
 

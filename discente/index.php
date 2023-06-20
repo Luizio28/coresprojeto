@@ -5,8 +5,7 @@
     <?php
     include("../_templates/echoer.php");
 
-    include("../_scripts/requests_reader.php");
-    include("../_scripts/resquests_writer.php");
+    include("../_scripts/requests_writer.php");
 
     include("../_templates/head.php");
     head_constructor("Contatos");
@@ -23,9 +22,9 @@
 
     <main>
         <div class="flex-column">
-            <form id="create-new" class="center-flex flex-column box" method="post">
-                <h1>Novo requerimento</h1>
+            <h1>Novo requerimento</h1>
 
+            <form id="create-new" class="center-flex flex-column box" method="post">
                 <div class="flex-row spaced-between">
                     <label for="curso">
                         Objeto do requerimento
@@ -53,6 +52,12 @@
                 </div>
 
                 <div class="flex-row spaced-between">
+                    <label for="obs">Observações</label>
+                    <textarea name="obs" cols="25" rows="11" maxlength="255" required></textarea>
+                </div>
+
+                <!--
+                <div class="flex-row spaced-between">
                     <label for="curso">
                         Objeto do requerimento
                     </label>
@@ -64,6 +69,7 @@
                         <option value="4">Concluído</option>
                     </select>
                 </div>
+                -->
 
                 <div>
                     <input type="submit" name="send" value="criar">

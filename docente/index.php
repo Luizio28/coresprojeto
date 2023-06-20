@@ -5,7 +5,6 @@
     include("../_templates/echoer.php");
 
     include("../_scripts/requests_reader.php");
-    include("../_scripts/resquests_writer.php");
 
     include("../_templates/head.php");
     head_constructor("Contatos");
@@ -21,12 +20,13 @@
     ?>
 
     <main>
-        <h1>Requerimentos</h1>
+        <div class="flex-column">
+            <h1>Requerimentos</h1>
 
-        <div class="flex-grid">
-            <?php echo_contacts(); ?>
+            <div class="flex-grid">
+                <?php echo_requests(); ?>
+            </div>
         </div>
-
     </main>
 
     <?php
