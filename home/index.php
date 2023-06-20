@@ -2,9 +2,9 @@
 
 <head>
     <?php
-    include("../_templates/echoer.php");
+    include "../_templates/echoer.php";
+    include "../_templates/head.php";
 
-    include("../_templates/head.php");
     head_constructor("Contatos");
     ?>
 
@@ -21,7 +21,7 @@
         <div class="flex-column">
             <h1>Login</h1>
 
-            <form method="post" action="TODO ADD ACTION" class="box">
+            <form method="post" action="../_scripts/account_reader.php" class="box">
                 <div class="flex-row spaced-between">
                     <label for="matricula">
                         N° de matrícula

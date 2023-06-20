@@ -2,11 +2,10 @@
 
 <head>
     <?php
-    include("../_templates/echoer.php");
+    include "../_templates/echoer.php";
+    include "../_scripts/requests_reader.php";
+    include "../_templates/head.php";
 
-    include("../_scripts/requests_reader.php");
-
-    include("../_templates/head.php");
     head_constructor("Contatos");
     ?>
 

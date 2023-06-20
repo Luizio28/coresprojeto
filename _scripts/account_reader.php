@@ -25,13 +25,15 @@ function login_attempt()
         $result = $db_connection->query("SELECT * FROM discente");
 
         while ($row = $result->fetch_assoc()) {
-            if ($nome == $row['nome']) {
-                header("Location: ../discentes/"); //To do, fazer o mesmo com os docentes
+            if ($nome == $row['nome'] & $psswd == $row['psswd']) {
+                $is_in_db = true;
             }
         }
-        
-        $db_connection->close();
 
+        header(($is_in_db) ? "Location: ../discentes/" : "Location: ../home/"); //To do, fazer redirecionamento pra aba de docentes
+
+        $db_connection->close();
+        
     } catch (Throwable $th) {
         echo "
         <div class='flex-column'>
