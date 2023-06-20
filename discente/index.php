@@ -45,8 +45,8 @@
                 </div>
 
                 <div class="flex-row spaced-between">
-                    <label for="anexo">Anexo</label>
-                    <input type="file" name="anexo" required>
+                    <label for="anexo">Anexo único</label>
+                    <input type="file" name="anexo" accept=".pdf" required>
                 </div>
 
                 <div class="flex-row spaced-between">
