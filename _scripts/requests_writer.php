@@ -19,7 +19,7 @@ if (isset($send)) {
             $db_name = 'remote_database';
         }
 
-        $db_consult = "INSERT INTO requerimento VALUES ('$id','$discente_id','$objeto','$inicio','$termino','$registro','$anexos','$obs','$situacao')";
+        $db_consult = "INSERT INTO requerimento VALUES ('$discente_id','$objeto', '$inicio', '$termino', '$anexos', '$obs', '$situacao')";
         $db_connection = new mysqli($db_hostname, $db_user, $db_pass, $db_name);
 
         $sql_query = mysqli_query($db_connection, $db_consult);

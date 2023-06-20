@@ -4,7 +4,6 @@
 <head>
     <?php
     include "../_templates/echoer.php";
-    include "../_scripts/requests_writer.php";
     include "../_templates/head.php";
     
     head_constructor("Novo requerimento");
@@ -74,6 +73,10 @@
                     <input type="submit" name="send" value="criar">
                 </div>
             </form>
+
+            <?php
+            include "../_scripts/requests_writer.php";
+            ?>
         </div>
     </main>
 
