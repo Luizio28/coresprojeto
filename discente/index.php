@@ -67,7 +67,6 @@
 
                 <div>
                     <input type="submit" name="send" value="criar">
-                    <input type="reset" value="apagar">
                 </div>
             </form>
         </div>

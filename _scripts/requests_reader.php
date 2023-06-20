@@ -2,14 +2,19 @@
 function echo_contacts()
 {
     try {
-        $conn = new mysqli("localhost", "root", "", "requerimentos");
+        $db_hostname = 'localhost';
+        $db_user = 'root';
+        $db_pass = '';
+        $db_name = 'requerimentos';
+
+        $conn = new mysqli($db_hostname, $db_user, $db_pass, $db_name);
 
         $result = $conn->query("SELECT * FROM requerimento");
 
         if (!$result) {
             echo "Error: " . $conn->error;
         } else {
-            while ($row = $result->fetch_assoc()) {
+            while ($row = $result->fetch_assoc()) {//To do consertar isso
                 $nome = $row['nome'];
                 $email = $row['email'];
                 $fone = $row['fone'];
