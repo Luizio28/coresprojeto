@@ -3,9 +3,8 @@
 <head>
     <?php
     include "../_templates/echoer.php";
-    include "../_scripts/account_creator.php";
     include "../_templates/head.php";
-    
+
     head_constructor("Contatos");
     ?>
 
@@ -60,7 +59,7 @@
                         Turma
                     </label>
 
-                    <select name="turma`">
+                    <select name="turma">
                         <option value="1">1°</option>
                         <option value="2">2°</option>
                         <option value="3">3°</option>
@@ -79,6 +78,10 @@
                     <a href="../home/">Já tenho uma conta.</a>
                 </div>
             </form>
+
+            <?php
+            include "../_scripts/account_creator.php";
+            ?>
         </div>
     </main>
 
