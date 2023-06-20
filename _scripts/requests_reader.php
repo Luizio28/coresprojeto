@@ -35,20 +35,20 @@ function echo_requests()
                 <th>observação</th>
                 <th>situação</th>
             </tr>
-            ";
+        ";
 
         while ($row = $result->fetch_assoc()) {
             echo "
             <tr>
-                <th>". $row['id'] ."</th>
-                <th>". $row['discente_id'] ."</th>
-                <th>". $row['objeto'] ."</th>
-                <th>". $row['inicio'] ."</th>
-                <th>". $row['termino'] ."</th>
-                <th>". $row['registro'] ."</th>
-                <th>". $row['anexo'] ."</th>
-                <th>". $row['obs'] ."</th>
-                <th>". $row['situacao'] ."</th>
+                <th>" . $row['id'] . "</th>
+                <th>" . $row['discente_id'] . "</th>
+                <th>" . $row['objeto'] . "</th>
+                <th>" . $row['inicio'] . "</th>
+                <th>" . $row['termino'] . "</th>
+                <th>" . $row['registro'] . "</th>
+                <th>" . $row['anexo'] . "</th>
+                <th>" . $row['obs'] . "</th>
+                <th>" . $row['situacao'] . "</th>
             </tr>
             ";
         }
@@ -57,7 +57,6 @@ function echo_requests()
         ";
 
         $db_connection->close();
-        
     } catch (Throwable $th) {
         echo "
             <div class='box flex-column'>
