@@ -63,8 +63,8 @@
                 <h1>Anexo</h1>
 
                 <div class="spaced-between box">
-                    <p class="flex-row">
-                        &emsp; Anexo único de arquivo pdf contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais. <span><a href="https://www.ilovepdf.com/jpg_to_pdf"> Onde posso converter fotos para pdf?</a></span>
+                    <p class="inline">
+                        &emsp; Anexo único de <a class="inline" href="https://www.ilovepdf.com/jpg_to_pdf"> arquivo pdf </a> contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais. 
                     </p>
 
                     <input type="file" name="anexo" accept=".pdf" required>

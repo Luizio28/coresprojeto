@@ -159,6 +159,11 @@ select:hover {
     text-decoration: none;
 }
 
+.inline{
+    display: inline-block;
+    margin:0;
+}
+
 #add {
     font-size: 4em;
 
