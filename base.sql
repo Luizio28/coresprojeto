@@ -29,7 +29,7 @@ create table discente(
 create table requerimento(
     id numeric primary key auto,
 
-    discente_id numeric(11) foreign key discente(matricula),
+    discente_id numeric(12) foreign key discente(matricula),
 
     objeto numeric(2) not null,
     inicio date not null,

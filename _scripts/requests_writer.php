@@ -7,11 +7,11 @@ if (isset($send)) {
         $is_local = ($server_ip === '127.0.0.1' || $server_ip === '::1');
 
         if ($is_local) {
-
             $db_hostname = 'localhost';
             $db_user = 'root';
             $db_pass = '';
             $db_name = 'requerimentos';
+            
         } else { //nn vou vazar dado de server nem a pau
             $db_hostname = 'remote_server_ip';
             $db_user = 'remote_username';
