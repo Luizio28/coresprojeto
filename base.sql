@@ -14,7 +14,7 @@ create table administradores(
 
 
 create table discente(
-    matricula numeric(12) primary key,
+    matricula binary(32) primary key,
 
     nome char(255) not null,
     email char(255) not null,
@@ -22,16 +22,16 @@ create table discente(
     curso numeric(1) not null,
     turma numeric(1) not null,
 
-    psswd char(255) not null
+    psswd binary(32) not null
 );
 
 
 create table requerimento(
     id numeric primary key auto,
 
-    discente_id numeric(12) foreign key discente(matricula),
+    discente_id binary(32) foreign key discente(matricula),
 
-    objeto numeric(2) not null,
+    objeto numeric(1) not null,
     inicio date not null,
     termino date not null,
     registro datetime default(getdate()) not null,

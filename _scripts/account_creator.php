@@ -7,11 +7,13 @@ if (isset($send)) {
     try {
         $db_connection = connect_to_db();
 
-        $db_consult = "INSERT INTO discente VALUES ('$matricula','$nome','$email','$fone','$curso','$turma','$psswd')";
+        $hashed_psswd = password_hash($psswd, PASSWORD_DEFAULT);
+        $hashed_matricula = password_hash($matricula, PASSWORD_DEFAULT);
+
+        $db_consult = "INSERT INTO discente VALUES ('$hashed_matricula','$nome','$email','$fone','$curso','$turma','$hashed_psswd')";
 
 
         $sql_query = mysqli_query($db_connection, $db_consult);
-
     } catch (Throwable $th) {
         echo "
         <div class='flex-column'>
