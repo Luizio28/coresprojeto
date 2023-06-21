@@ -9,12 +9,12 @@ create table administradores(
     email char(255) not null,
     curso numeric(1) not null,
 
-    psswd char(255) not null
+    psswd binary(32) not null
 );
 
 
 create table discente(
-    matricula binary(32) primary key,
+    matricula numeric(12) primary key,
 
     nome char(255) not null,
     email char(255) not null,
@@ -29,7 +29,7 @@ create table discente(
 create table requerimento(
     id numeric primary key auto,
 
-    discente_id binary(32) foreign key discente(matricula),
+    discente_id numeric(12) foreign key discente(matricula),
 
     objeto numeric(1) not null,
     inicio date not null,
