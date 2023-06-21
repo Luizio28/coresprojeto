@@ -11,18 +11,25 @@ if (isset($send)) {
 
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        $stmt = $pdo->prepare("INSERT INTO discente (matricula, nome, email, fone, curso, turma, psswd)
-                               VALUES (:matricula, :nome, :email, :fone, :curso, :turma, :psswd");
-
-
         $hashed_psswd = hash('sha256', $psswd, true);
 
-        $stmt->bindParam(':matricula', $matricula);
+        if (strlen($nome == 12)) {
+            $stmt = $pdo->prepare("INSERT INTO discente (matricula, nome, email, fone, curso, turma, psswd)
+                               VALUES (:matricula, :nome, :email, :fone, :curso, :turma, :psswd");
+
+            $stmt->bindParam(':matricula', $matricula);
+            $stmt->bindParam(':fone', $fone);
+            $stmt->bindParam(':turma', $turma);
+        } else {
+            $stmt = $pdo->prepare("INSERT INTO administradores (siape, nome, email, curso, psswd)
+                               VALUES (:siape, :nome, :email, :curso, :psswd");
+
+            $stmt->bindParam(':siape', $siape);
+        }
+
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':fone', $fone);
         $stmt->bindParam(':curso', $curso);
-        $stmt->bindParam(':turma', $turma);
         $stmt->bindParam(':psswd', $hashed_psswd);
 
         $stmt->execute();
