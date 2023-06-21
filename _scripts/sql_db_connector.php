@@ -1,4 +1,7 @@
 <?php
+
+//high DRYification potential
+
 function connect_to_db()
 {
     $server_ip = $_SERVER['SERVER_ADDR'];
@@ -19,7 +22,8 @@ function connect_to_db()
     return new mysqli($db_hostname, $db_user, $db_pass, $db_name);
 }
 
-function connect_with_pdo(){
+function connect_with_pdo()
+{
     $server_ip = $_SERVER['SERVER_ADDR'];
     $is_local = ($server_ip === '127.0.0.1' || $server_ip === '::1');
 
