@@ -7,8 +7,8 @@ if (isset($send)) {
     try {
         $db_connection = connect_to_db();
 
-        $hashed_psswd = password_hash($psswd, PASSWORD_DEFAULT);
-        $hashed_matricula = password_hash($matricula, PASSWORD_DEFAULT);
+        $hashed_psswd = hash('sha256', $psswd, true);
+        $hashed_matricula = hash('sha256', $matricula, true);
 
         $db_consult = "INSERT INTO discente VALUES ('$hashed_matricula','$nome','$email','$fone','$curso','$turma','$hashed_psswd')";
 
