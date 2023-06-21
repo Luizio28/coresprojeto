@@ -176,3 +176,8 @@ select:hover {
 #add:hover {
     color: var(--p-black-03);
 }
+
+.ico{
+    width:2em;
+
+}
