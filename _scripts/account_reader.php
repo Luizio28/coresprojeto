@@ -1,6 +1,6 @@
 <?php
 include "../_scripts/sql_db_connector.php";
-
+// Alto potencial para ser mais DRY
 function login_attempt()
 {
     extract($_POST);
