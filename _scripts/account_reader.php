@@ -32,6 +32,18 @@ function login_attempt()
                     }
                 }
 
+                if (!$is_in_db){
+                    echo "
+                    <div class='flex-column'>
+                        <h1>ERRO</h1>
+                        
+                        <div class='box'>
+                            <p>Dados de login incorretos ou inválidos</p>
+                        </div>
+                    </div>
+                    ";
+                }
+
                 header(($is_in_db) ? "Location: ../docentes/" : "Location: ../home/"); 
             case 12:
                 $result = $db_connection->query("SELECT * FROM discente");
@@ -40,6 +52,18 @@ function login_attempt()
                     if ($nome == $row['nome'] & $psswd == $row['psswd']) {
                         $is_in_db = true;
                     }
+                }
+
+                if (!$is_in_db){
+                    echo "
+                    <div class='flex-column'>
+                        <h1>ERRO</h1>
+                        
+                        <div class='box'>
+                            <p>Dados de login incorretos ou inválidos</p>
+                        </div>
+                    </div>
+                    ";
                 }
 
                 header(($is_in_db) ? "Location: ../discentes/" : "Location: ../home/"); 
@@ -53,7 +77,7 @@ function login_attempt()
             <h1>ERRO</h1>
             
             <div class='box'>
-                <p>Dados de login incorretos ou inválidos</p>
+                <p>não foi possível conectar ao servidor</p>
             </div>
         </div>
         ";
