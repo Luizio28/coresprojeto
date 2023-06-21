@@ -37,7 +37,7 @@ create table requerimento(
     registro datetime default(getdate()) not null,
 
     anexo varbinary(max) not null, 
-    obs char(255) not null,
+    obs char(255),
     situacao numeric(1) not null
 );
 
