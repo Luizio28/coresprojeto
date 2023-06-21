@@ -7,10 +7,11 @@ if (isset($send)) {
     try {
         $db_connection = connect_to_db();
 
+        $discente_id = $_COOKIE[$cookieName];
+
         $db_consult = "INSERT INTO requerimento VALUES ('$discente_id','$objeto', '$inicio', '$termino', '$anexos', '$obs', '$situacao')";
 
         $sql_query = mysqli_query($db_connection, $db_consult);
-        
     } catch (Throwable $th) {
         echo "
         <div class='flex-column'>

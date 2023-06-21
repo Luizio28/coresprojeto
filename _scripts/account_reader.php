@@ -24,6 +24,12 @@ function login_attempt()
         while ($row = $result->fetch_assoc()) {
             if ($nome == $row['nome'] & $psswd == $row['psswd']) {
                 $is_in_db = true;
+
+                if (strlen($nome) == 11) {
+                    setcookie("discente_id", $row['discente_id'], time() + 3600);
+                }else{
+                    setcookie("siape", $row['siape'], time() + 3600);
+                }
             }
         }
 
