@@ -1,4 +1,6 @@
 <?php
+include "../_scripts/sql_db_connector.php";
+
 function login_attempt()
 {
     extract($_POST);

@@ -1,4 +1,6 @@
 <?php
+include "../_scripts/sql_db_connector.php";
+
 extract($_POST);
 
 if (isset($send)) {
