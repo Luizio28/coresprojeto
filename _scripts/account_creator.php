@@ -5,8 +5,6 @@ extract($_POST);
 
 if (isset($send)) {
     try {
-        $db_connection = connect_to_db();
-
         $pdo = connect_with_pdo();
 
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -17,29 +15,29 @@ if (isset($send)) {
             $stmt = $pdo->prepare("INSERT INTO discente (matricula, nome, email, fone, curso, turma, psswd)
                                VALUES (:matricula, :nome, :email, :fone, :curso, :turma, :psswd");
 
-            $stmt->bindParam(':matricula', $matricula);
-            $stmt->bindParam(':fone', $fone);
-            $stmt->bindParam(':turma', $turma);
+            $stmt->bindParam(':matricula', $matricula, PDO::PARAM_INT, 12);
+            $stmt->bindParam(':fone', $fone, PDO::PARAM_INT, 11);
+            $stmt->bindParam(':turma', $turma, PDO::PARAM_INT, 1);
         } else {
             $stmt = $pdo->prepare("INSERT INTO administradores (siape, nome, email, curso, psswd)
                                VALUES (:siape, :nome, :email, :curso, :psswd");
 
-            $stmt->bindParam(':siape', $siape);
+            $stmt->bindParam(':siape', $siape, PDO::PARAM_INT, 7);
         }
 
-        $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':curso', $curso);
-        $stmt->bindParam(':psswd', $hashed_psswd);
+        $stmt->bindParam(':nome', $nome, PDO::PARAM_STR_CHAR, 255);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR_CHAR, 255);
+        $stmt->bindParam(':curso', $curso, PDO::PARAM_INT, 1);
+        $stmt->bindParam(':psswd', $hashed_psswd, PDO::PARAM_LOB, 32);
 
         $stmt->execute();
-    } catch (Throwable $th) {
+    } catch (PDOException $e) {
         echo "
         <div class='flex-column'>
             <h1>ERRO</h1>
             
             <div class='box'>
-                <p>não foi possível conectar ao servidor</p>
+                <p>" . $e->getMessage() . "</p>
             </div>
         </div>
         ";
