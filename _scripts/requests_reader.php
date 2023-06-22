@@ -5,10 +5,21 @@ function echo_requests()
 {
     try {
         $db_connection = connect_to_db();
-
-        $result = $db_connection->query("SELECT * FROM requerimento");
-
+    } catch (Throwable $th) {
         echo "
+        <div class='flex-column'>
+            <h1>ERRO</h1>
+            
+            <div class='box'>
+                <p>" . $th . "</p>
+            </div>
+        </div>
+        ";
+    }
+
+    $result = $db_connection->query("SELECT * FROM requerimento");
+
+    echo "
         <table>
             <tr>
                 <th>id</th>
@@ -23,8 +34,8 @@ function echo_requests()
             </tr>
         ";
 
-        while ($row = $result->fetch_assoc()) {
-            echo "
+    while ($row = $result->fetch_assoc()) {
+        echo "
             <tr>
                 <th>" . $row['id'] . "</th>
                 <th>" . $row['discente_id'] . "</th>
@@ -37,21 +48,10 @@ function echo_requests()
                 <th>" . $row['situacao'] . "</th>
             </tr>
             ";
-        }
-        echo "
+    }
+    echo "
         </table>
         ";
 
-        $db_connection->close();
-    } catch (Throwable $th) {
-        echo "
-        <div class='flex-column'>
-            <h1>ERRO</h1>
-            
-            <div class='box'>
-                <p>".$th."</p>
-            </div>
-        </div>
-        ";
-    }
+    $db_connection->close();
 }

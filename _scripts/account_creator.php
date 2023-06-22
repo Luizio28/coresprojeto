@@ -6,31 +6,6 @@ extract($_POST);
 if (isset($send)) {
     try {
         $pdo = connect_with_pdo();
-
-        $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
-        $hashed_psswd = hash('sha256', $psswd, true);
-
-        if (strlen($nome == 12)) {
-            $stmt = $pdo->prepare("INSERT INTO discente (matricula, nome, email, fone, curso, turma, psswd)
-                               VALUES (:matricula, :nome, :email, :fone, :curso, :turma, :psswd");
-
-            $stmt->bindParam(':matricula', $matricula, PDO::PARAM_INT, 12);
-            $stmt->bindParam(':fone', $fone, PDO::PARAM_INT, 11);
-            $stmt->bindParam(':turma', $turma, PDO::PARAM_INT, 1);
-        } else {
-            $stmt = $pdo->prepare("INSERT INTO administradores (siape, nome, email, curso, psswd)
-                               VALUES (:siape, :nome, :email, :curso, :psswd");
-
-            $stmt->bindParam(':siape', $siape, PDO::PARAM_INT, 7);
-        }
-
-        $stmt->bindParam(':nome', $nome, PDO::PARAM_STR_CHAR, 255);
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR_CHAR, 255);
-        $stmt->bindParam(':curso', $curso, PDO::PARAM_INT, 1);
-        $stmt->bindParam(':psswd', $hashed_psswd, PDO::PARAM_LOB, 32);
-
-        $stmt->execute();
     } catch (PDOException $e) {
         echo "
         <div class='flex-column'>
@@ -42,4 +17,29 @@ if (isset($send)) {
         </div>
         ";
     }
+
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+    $hashed_psswd = hash('sha256', $psswd, true);
+
+    if (strlen($nome == 12)) {
+        $stmt = $pdo->prepare("INSERT INTO discente (matricula, nome, email, fone, curso, turma, psswd)
+                               VALUES (:matricula, :nome, :email, :fone, :curso, :turma, :psswd");
+
+        $stmt->bindParam(':matricula', $matricula, PDO::PARAM_INT, 12);
+        $stmt->bindParam(':fone', $fone, PDO::PARAM_INT, 11);
+        $stmt->bindParam(':turma', $turma, PDO::PARAM_INT, 1);
+    } else {
+        $stmt = $pdo->prepare("INSERT INTO administradores (siape, nome, email, curso, psswd)
+                               VALUES (:siape, :nome, :email, :curso, :psswd");
+
+        $stmt->bindParam(':siape', $siape, PDO::PARAM_INT, 7);
+    }
+
+    $stmt->bindParam(':nome', $nome, PDO::PARAM_STR_CHAR, 255);
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR_CHAR, 255);
+    $stmt->bindParam(':curso', $curso, PDO::PARAM_INT, 1);
+    $stmt->bindParam(':psswd', $hashed_psswd, PDO::PARAM_LOB, 32);
+
+    $stmt->execute();
 }
