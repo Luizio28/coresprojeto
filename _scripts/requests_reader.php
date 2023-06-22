@@ -4,20 +4,23 @@ include "../_scripts/sql_db_connector.php";
 function echo_requests()
 {
     try {
-        $db_connection = connect_to_db();
-    } catch (Throwable $th) {
+        $pdo = connect_with_pdo();
+    } catch (PDOException $e) {
         echo "
         <div class='flex-column'>
             <h1>ERRO</h1>
             
             <div class='box'>
-                <p>" . $th . "</p>
+                <p>" . $e->getMessage() . "</p>
             </div>
         </div>
         ";
     }
 
-    $result = $db_connection->query("SELECT * FROM requerimento");
+    $stmt = $pdo->prepare("SELECT * FROM requerimento");
+    $stmt->execute();
+
+    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     echo "
         <table>
@@ -34,7 +37,7 @@ function echo_requests()
             </tr>
         ";
 
-    while ($row = $result->fetch_assoc()) {
+    foreach ($res as $row) {
         echo "
             <tr>
                 <th>" . $row['id'] . "</th>
@@ -52,6 +55,4 @@ function echo_requests()
     echo "
         </table>
         ";
-
-    $db_connection->close();
 }
