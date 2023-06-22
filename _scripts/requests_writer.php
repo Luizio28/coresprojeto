@@ -22,8 +22,8 @@ if (isset($send)) {
 
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-    $stmt = $pdo->prepare("INSERT INTO requerimento (id, objeto, inicio, termino, registro, anexo, obs, situacao, discente_id)
-                               VALUES (:id, :objeto, :inicio, :termino, :registro, :anexo, :obs, :situacao, :discente_id)");
+    $stmt = $pdo->prepare("INSERT INTO requerimento (id, objeto, inicio, termino, registro, anexo, obs, situacao, usuario_id)
+                               VALUES (:id, :objeto, :inicio, :termino, :registro, :anexo, :obs, :situacao, :usuario_id)");
 
     $id = null;
     $registro = null;
@@ -39,7 +39,7 @@ if (isset($send)) {
     $stmt->bindParam(':obs', $obs, PDO::PARAM_STR_CHAR, 255);
     $stmt->bindParam(':situacao', $situacao, PDO::PARAM_INT, 1);
 
-    $stmt->bindParam(':discente_id', $discente_id, PDO::PARAM_INT, 12);
+    $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT, 12);
 
     $stmt->execute();
 }

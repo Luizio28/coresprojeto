@@ -75,7 +75,7 @@
 
                 <div>
                     <input type="submit" name="send" value="criar">
-                    <a href="../home/">Já tenho uma conta.</a>
+                    <a href="../sign-in/">Já tenho uma conta.</a>
                 </div>
             </form>
 

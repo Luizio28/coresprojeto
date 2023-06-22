@@ -18,9 +18,7 @@ if (isset($send)) {
         ";
     }
 
-    $table = strlen($nome) > 7 ? "discente" : "administrador";
-
-    $stmt = $pdo->prepare("SELECT id, psswd FROM $table");
+    $stmt = $pdo->prepare("SELECT id, psswd FROM usuario");
     $stmt->execute();
 
     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -28,7 +26,7 @@ if (isset($send)) {
     foreach ($res as $row) {
         if ($nome == $row['id'] & $psswd == $row['psswd']) {
             setcookie("id", $row['id'], time() + 3600);
-            header("Location: ../$table/");
+            header("Location: ../" . strlen($nome) > 7 ? "usuario" : "administrador" . "/");
         }
     }
 }

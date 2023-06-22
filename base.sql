@@ -2,26 +2,16 @@ CREATE DATABASE requerimentos;
 USE requerimentos;
 
 
-CREATE TABLE administrador(
-    id INT(7) PRIMARY KEY,
-
-    nome CHAR(255) NOT NULL,
-    email CHAR(255) NOT NULL,
-    curso INT(1) NOT NULL,
-
-    psswd BINARY(32) NOT NULL
-);
-
-
-CREATE TABLE discente(
+CREATE TABLE usuario(
     id INT(12) PRIMARY KEY,
 
     nome CHAR(255) NOT NULL,
     email CHAR(255) NOT NULL,
-    fone INT(11) NOT NULL,
+    fone INT(11),
     curso INT(1) NOT NULL,
-    turma INT(1) NOT NULL,
+    turma INT(1),
 
+    superuser BOOLEAN DEFAULT 0,
     psswd BINARY(32) NOT NULL
 );
 
@@ -38,7 +28,7 @@ CREATE TABLE requerimento(
     obs CHAR(255),
     situacao INT(1) NOT NULL,
 
-    FOREIGN KEY discente_id REFERENCES discente(id),
+    FOREIGN KEY usuario_id REFERENCES usuario(id),
 );
 
 

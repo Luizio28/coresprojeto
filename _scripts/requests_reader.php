@@ -26,7 +26,7 @@ function echo_requests()
         <table>
             <tr>
                 <th>id</th>
-                <th>discente</th>
+                <th>usuario</th>
                 <th>objeto</th>
                 <th>data inicio</th>
                 <th>data termino</th>
@@ -41,7 +41,7 @@ function echo_requests()
         echo "
             <tr>
                 <th>" . $row['id'] . "</th>
-                <th>" . $row['discente_id'] . "</th>
+                <th>" . $row['usuario_id'] . "</th>
                 <th>" . $row['objeto'] . "</th>
                 <th>" . $row['inicio'] . "</th>
                 <th>" . $row['termino'] . "</th>
