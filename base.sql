@@ -1,55 +1,55 @@
-create database requerimentos;
-use requerimentos;
+CREATE DATABASE requerimentos;
+USE requerimentos;
 
 
-create table administradores(
-    siape int(7) primary key,
+CREATE TABLE administradores(
+    siape INT(7) PRIMARY KEY,
 
-    nome char(255) not null,
-    email char(255) not null,
-    curso int(1) not null,
+    nome CHAR(255) NOT NULL,
+    email CHAR(255) NOT NULL,
+    curso INT(1) NOT NULL,
 
-    psswd binary(32) not null
+    psswd BINARY(32) NOT NULL
 );
 
 
-create table discente(
-    matricula int(12) primary key,
+CREATE TABLE discente(
+    matricula INT(12) PRIMARY KEY,
 
-    nome char(255) not null,
-    email char(255) not null,
-    fone int(11) not null,
-    curso int(1) not null,
-    turma int(1) not null,
+    nome CHAR(255) NOT NULL,
+    email CHAR(255) NOT NULL,
+    fone INT(11) NOT NULL,
+    curso INT(1) NOT NULL,
+    turma INT(1) NOT NULL,
 
-    psswd binary(32) not null
+    psswd BINARY(32) NOT NULL
 );
 
 
-create table requerimento(
-    id int primary key auto,
+CREATE TABLE requerimento(
+    id INT PRIMARY KEY AUTO,
 
-    discente_id int(12) foreign key discente(matricula),
+    objeto INT(1) NOT NULL,
+    inicio DATE NOT NULL,
+    termino DATE NOT NULL,
+    registro DATETIME DEFAULT(GETDATE()) NOT NULL,
 
-    objeto int(1) not null,
-    inicio date not null,
-    termino date not null,
-    registro datetime default(getdate()) not null,
+    anexo VARBINARY(MAS) NOT NULL, 
+    obs CHAR(255),
+    situacao INT(1) NOT NULL,
 
-    anexo varbinary(max) not null, 
-    obs char(255),
-    situacao int(1) not null
+    FOREIGN KEY discente_id REFERENCES discente(matricula),
 );
 
 
-create table falta(
-    requerimento_id int foreign key requerimento(id),
-    docente_id int foreign key docente(id),
-    faltas int(1)
+CREATE TABLE falta(
+    faltas INT(1),
+    FOREIGN KEY requerimento_id REFERENCES requerimento(id),
+    FOREIGN KEY docente_id REFERENCES docente(id)
 );
 
 
-create table docente(
-    id numeric primary key auto,
-    nome char(255) not null
+CREATE TABLE docente(
+    id INT PRIMARY KEY AUTO,
+    nome CHAR(255) NOT NULL
 );
