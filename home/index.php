@@ -40,7 +40,7 @@
 
                 <div class="flex-row spaced-between">
                     <input type="submit" name="send" value="Entrar">
-                    <a href="../sign-up/">Não tem conta?</a>
+                    <a href="../newbie/">Não tem conta?</a>
                 </div>
             </form>
         </div>
