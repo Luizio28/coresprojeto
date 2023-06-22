@@ -2,7 +2,7 @@ CREATE DATABASE requerimentos;
 USE requerimentos;
 
 
-CREATE TABLE administradores(
+CREATE TABLE administrador(
     id INT(7) PRIMARY KEY,
 
     nome CHAR(255) NOT NULL,
