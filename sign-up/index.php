@@ -23,7 +23,7 @@
             <form id="create-new" class="center-flex flex-column box" method="post">
 
                 <div class="flex-row spaced-between">
-                    <label for="id"> N° de matícula</label>
+                    <label for="id"> N° de matrícula</label>
                     <input maxlength="12" type="text" name="id" required>
                 </div>
 
