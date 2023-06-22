@@ -1,62 +1,51 @@
 <?php
 include "../_scripts/sql_db_connector.php";
-function login_attempt()
-{
-    extract($_POST);
 
+extract($_POST);
+
+//this still fells like it could be DRYer
+
+if (isset($send)) {
     try {
-        $db_connection = connect_to_db();
-    } catch (Throwable $th) {
+        $pdo = connect_with_pdo();
+    } catch (PDOException $e) {
         echo "
         <div class='flex-column'>
             <h1>ERRO</h1>
             
             <div class='box'>
-                <p>" . $th . "</p>
+                <p>" . $e->getMessage() . "</p>
             </div>
         </div>
         ";
-        header("Location: ../home/");
     }
-
-    $out_domain = "Location: ../home/";
 
     switch ($nome) {
         case 7:
-            $result = $db_connection->query("SELECT * FROM administradores");
+            $stmt = $pdo->prepare("SELECT siape, psswd FROM administradores");
+            $stmt->execute();
 
-            $out_domain = "Location: ../docentes/";
-        case 12:
-            $result = $db_connection->query("SELECT * FROM discente");
+            $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            $out_domain = "Location: ../discentes/";
-    }
-
-    while ($row = $result->fetch_assoc()) {
-        if ($nome == $row['nome'] & $psswd == $row['psswd']) {
-            $is_in_db = true;
-
-            if (strlen($nome) == 11) {
-                setcookie("discente_id", $row['discente_id'], time() + 3600);
-            } else {
-                setcookie("siape", $row['siape'], time() + 3600);
+            foreach ($res as $row) {
+                if ($nome == $row['siape'] & $psswd == $row['psswd']) {
+                    setcookie("siape", $row['siape'], time() + 3600);
+                    header("Location: ../docentes/");
+                }
             }
-        }
+
+        case 12:
+            $stmt = $pdo->prepare("SELECT matricula, psswd FROM discentes");
+            $stmt->execute();
+
+            $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($res as $row) {
+                if ($nome == $row['matricula'] & $psswd == $row['psswd']) {
+                    setcookie("matricula", $row['matricula'], time() + 3600);
+
+                    header("Location: ../discentes/");
+                }
+            }
     }
-
-    if (!$is_in_db) {
-        echo "
-            <div class='flex-column'>
-                <h1>ERRO</h1>
-                
-                <div class='box'>
-                    <p>Dados de login incorretos ou inválidos</p>
-                </div>
-            </div>
-            ";
-    }
-
-    header(($is_in_db) ? $out_domain : "Location: ../home/");
-
-    $db_connection->close();
 }
