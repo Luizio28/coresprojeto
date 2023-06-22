@@ -49,7 +49,7 @@ function echo_requests()
             <h1>ERRO</h1>
             
             <div class='box'>
-                <p>não foi possível conectar ao servidor</p>
+                <p>".$th."</p>
             </div>
         </div>
         ";
