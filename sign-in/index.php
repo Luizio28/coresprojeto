@@ -5,7 +5,7 @@
     include "../_templates/echoer.php";
     include "../_templates/head.php";
 
-    head_constructor("Sign-in");
+    head_constructor("sign-in");
     ?>
 
     <script src="../_js/toggle.js"></script>
@@ -40,7 +40,7 @@
 
                 <div class="flex-row spaced-between">
                     <input type="submit" name="send" value="Entrar">
-                    <a href="../newbie/">Não tem conta?</a>
+                    <a href="../sign-up/">Não tem conta?</a>
                 </div>
             </form>
         </div>

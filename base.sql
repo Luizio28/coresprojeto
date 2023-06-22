@@ -1,55 +1,39 @@
 CREATE DATABASE requerimentos;
 USE requerimentos;
 
-
-CREATE TABLE administrador(
-    id INT(7) PRIMARY KEY,
-
-    nome CHAR(255) NOT NULL,
-    email CHAR(255) NOT NULL,
-    curso INT(1) NOT NULL,
-
-    psswd BINARY(32) NOT NULL
-);
-
-
-CREATE TABLE discente(
+CREATE TABLE usuario (
     id INT(12) PRIMARY KEY,
-
     nome CHAR(255) NOT NULL,
     email CHAR(255) NOT NULL,
-    fone INT(11) NOT NULL,
+    fone INT(11),
     curso INT(1) NOT NULL,
-    turma INT(1) NOT NULL,
-
+    turma INT(1),
+    superuser BOOLEAN DEFAULT 0,
     psswd BINARY(32) NOT NULL
 );
 
-
-CREATE TABLE requerimento(
-    id INT PRIMARY KEY AUTO,
-
+CREATE TABLE requerimento (
+    id INT PRIMARY KEY AUTO_INCREMENT,
     objeto INT(1) NOT NULL,
     inicio DATE NOT NULL,
     termino DATE NOT NULL,
-    registro DATETIME DEFAULT(GETDATE()) NOT NULL,
-
-    anexo VARBINARY(MAS) NOT NULL, 
+    registro DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    anexo LONGBLOB NOT NULL,
     obs CHAR(255),
     situacao INT(1) NOT NULL,
-
-    FOREIGN KEY discente_id REFERENCES discente(id),
+    usuario_id INT(12),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
-
-CREATE TABLE falta(
+CREATE TABLE falta (
     faltas INT(1),
-    FOREIGN KEY requerimento_id REFERENCES requerimento(id),
-    FOREIGN KEY docente_id REFERENCES docente(id)
+    requerimento_id INT,
+    docente_id INT,
+    FOREIGN KEY (requerimento_id) REFERENCES requerimento(id),
+    FOREIGN KEY (docente_id) REFERENCES docente(id)
 );
 
-
-CREATE TABLE docente(
-    id INT PRIMARY KEY AUTO,
+CREATE TABLE docente (
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome CHAR(255) NOT NULL
 );

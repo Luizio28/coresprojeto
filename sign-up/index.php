@@ -5,7 +5,7 @@
     include "../_templates/echoer.php";
     include "../_templates/head.php";
 
-    head_constructor("Sign-up");
+    head_constructor("sign-up");
     ?>
 
     <script src="../_js/toggle.js"></script>
@@ -75,7 +75,7 @@
 
                 <div>
                     <input type="submit" name="send" value="criar">
-                    <a href="../home/">Já tenho uma conta.</a>
+                    <a href="../sign-in/">Já tenho uma conta.</a>
                 </div>
             </form>
 
