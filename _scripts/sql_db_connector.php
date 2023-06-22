@@ -18,15 +18,22 @@ function get_database_config()
         ];
 }
 
-function connect_to_db()
-{
-    $config = get_database_config();
-    return new mysqli($config['db_hostname'], $config['db_user'], $config['db_pass'], $config['db_name']);
-}
-
 function connect_with_pdo()
 {
     $config = get_database_config();
     $dsn = "mysql:host={$config['db_hostname']};dbname={$config['db_name']}";
     return new PDO($dsn, $config['db_user'], $config['db_pass']);
+}
+
+function handle_pdo_exception(PDOException $e)
+{
+    echo "
+    <div class='flex-column'>
+        <h1>ERRO</h1>
+        
+        <div class='box'>
+            <p>" . $e->getMessage() . "</p>
+        </div>
+    </div>
+    ";
 }

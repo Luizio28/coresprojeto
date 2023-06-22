@@ -5,24 +5,13 @@ function echo_requests()
 {
     try {
         $pdo = connect_with_pdo();
-    } catch (PDOException $e) {
+
+        $stmt = $pdo->prepare("SELECT * FROM requerimento");
+        $stmt->execute();
+
+        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
         echo "
-        <div class='flex-column'>
-            <h1>ERRO</h1>
-            
-            <div class='box'>
-                <p>" . $e->getMessage() . "</p>
-            </div>
-        </div>
-        ";
-    }
-
-    $stmt = $pdo->prepare("SELECT * FROM requerimento");
-    $stmt->execute();
-
-    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    echo "
         <table>
             <tr>
                 <th>id</th>
@@ -37,8 +26,8 @@ function echo_requests()
             </tr>
         ";
 
-    foreach ($res as $row) {
-        echo "
+        foreach ($res as $row) {
+            echo "
             <tr>
                 <th>" . $row['id'] . "</th>
                 <th>" . $row['usuario_id'] . "</th>
@@ -51,8 +40,11 @@ function echo_requests()
                 <th>" . $row['situacao'] . "</th>
             </tr>
             ";
-    }
-    echo "
+        }
+        echo "
         </table>
         ";
+    } catch (PDOException $e) {
+        handle_pdo_exception($e);
+    }
 }
