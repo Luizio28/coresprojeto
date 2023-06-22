@@ -3,7 +3,7 @@ USE requerimentos;
 
 
 CREATE TABLE administradores(
-    siape INT(7) PRIMARY KEY,
+    id INT(7) PRIMARY KEY,
 
     nome CHAR(255) NOT NULL,
     email CHAR(255) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE administradores(
 
 
 CREATE TABLE discente(
-    matricula INT(12) PRIMARY KEY,
+    id INT(12) PRIMARY KEY,
 
     nome CHAR(255) NOT NULL,
     email CHAR(255) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE requerimento(
     obs CHAR(255),
     situacao INT(1) NOT NULL,
 
-    FOREIGN KEY discente_id REFERENCES discente(matricula),
+    FOREIGN KEY discente_id REFERENCES discente(id),
 );
 
 

@@ -23,11 +23,11 @@
 
             <form method="post" action="../_scripts/account_reader.php" class="box">
                 <div class="flex-row spaced-between">
-                    <label for="matricula">
+                    <label for="id">
                         N° de matrícula
                     </label>
 
-                    <input maxlength="12" type="text" name="matricula" required>
+                    <input maxlength="12" type="text" name="id" required>
                 </div>
 
                 <div class="flex-row spaced-between">

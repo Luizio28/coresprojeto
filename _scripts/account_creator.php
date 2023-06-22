@@ -23,17 +23,17 @@ if (isset($send)) {
     $hashed_psswd = hash('sha256', $psswd, true);
 
     if (strlen($nome == 12)) {
-        $stmt = $pdo->prepare("INSERT INTO discente (matricula, nome, email, fone, curso, turma, psswd)
-                               VALUES (:matricula, :nome, :email, :fone, :curso, :turma, :psswd");
+        $stmt = $pdo->prepare("INSERT INTO discente (id, nome, email, fone, curso, turma, psswd)
+                               VALUES (:id, :nome, :email, :fone, :curso, :turma, :psswd");
 
-        $stmt->bindParam(':matricula', $matricula, PDO::PARAM_INT, 12);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT, 12);
         $stmt->bindParam(':fone', $fone, PDO::PARAM_INT, 11);
         $stmt->bindParam(':turma', $turma, PDO::PARAM_INT, 1);
     } else {
-        $stmt = $pdo->prepare("INSERT INTO administradores (siape, nome, email, curso, psswd)
-                               VALUES (:siape, :nome, :email, :curso, :psswd");
+        $stmt = $pdo->prepare("INSERT INTO administradores (id, nome, email, curso, psswd)
+                               VALUES (:id, :nome, :email, :curso, :psswd");
 
-        $stmt->bindParam(':siape', $siape, PDO::PARAM_INT, 7);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT, 7);
     }
 
     $stmt->bindParam(':nome', $nome, PDO::PARAM_STR_CHAR, 255);
