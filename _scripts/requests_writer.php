@@ -20,7 +20,7 @@ if (isset($_POST['send'])) {
         $stmt->bindParam(':anexo', $_POST['anexo'], PDO::PARAM_LOB);
         $stmt->bindParam(':obs', $_POST['obs'], PDO::PARAM_STR_CHAR, 255);
 
-        $stmt->bindParam(':usuario_id', $_POST['usuario_id'], PDO::PARAM_INT, 12);
+        $stmt->bindParam(':usuario_id', $_COOKIE['id'], PDO::PARAM_STR, 12);
 
         $stmt->execute();
     } catch (PDOException $e) {
