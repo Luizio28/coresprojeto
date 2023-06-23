@@ -10,15 +10,18 @@ if (isset($_POST['send'])) {
 
         $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+        $sucess = false;
         foreach ($res as $row) {
-            if ($_POST['$nome'] == $row['id'] & password_verify($_POST['$psswd'], $row['psswd'])) {
-                $sucess = true;
-                setcookie("id", $row['id'], time() + 3600);
-                header("Location: ../" . strlen($_POST['$nome']) > 7 ? "usuario" : "administrador" . "/");
-            }
+            $sucess = $_POST['id'] == $row['id'] & password_verify($_POST['psswd'], $row['psswd']) ? true : $sucess;
         }
+
         if (!$sucess) {
             header("Location: ../sign-in");
+        } else {
+            setcookie("id", $row['id'], time() + 3600);
+
+            $loc = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
+            header("Location: ../$loc/");
         }
     } catch (PDOException $e) {
         handle_pdo_exception($e);

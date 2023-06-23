@@ -28,6 +28,11 @@ if (isset($_POST['send'])) {
         }
 
         $stmt->execute();
+
+        setcookie("id", $row['id'], time() + 3600);
+
+        $loc = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
+        header("Location: ../$loc/");
     } catch (PDOException $e) {
         handle_pdo_exception($e);
     }
