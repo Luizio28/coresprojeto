@@ -1,8 +1,8 @@
 <?php #https://www.w3schools.com/howto/howto_js_sort_table.asp use isso no futuro
-include "../_scripts/sql_db_connector.php";
-
 function echo_requests()
 {
+    include "../_scripts/sql_db_connector.php";
+
     try {
         $pdo = connect_with_pdo();
 
