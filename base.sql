@@ -9,7 +9,7 @@ CREATE TABLE usuario (
     curso INT(1) NOT NULL,
     turma INT(1),
     superuser BOOLEAN DEFAULT 0,
-    psswd BINARY(32) NOT NULL
+    psswd char(255) NOT NULL
 );
 
 CREATE TABLE requerimento (

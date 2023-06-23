@@ -9,18 +9,25 @@ if (isset($send)) {
 
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        $hashed_psswd = hash('sha256', $psswd, true);
+        $hashed_psswd = password_hash($psswd, PASSWORD_DEFAULT);
 
         $stmt = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, curso, turma, superuser, psswd)
-                               VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd");
+        VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd");
 
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT, 12);
-        $stmt->bindParam(':nome', $nome, PDO::PARAM_STR_CHAR, 255);
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR_CHAR, 255);
-        $stmt->bindParam(':fone', $fone, PDO::PARAM_INT, 11);
-        $stmt->bindParam(':curso', $curso, PDO::PARAM_INT, 1);
-        $stmt->bindParam(':turma', $turma, PDO::PARAM_INT, 1);
-        $stmt->bindParam(':psswd', $hashed_psswd, PDO::PARAM_LOB, 32);
+        $params = array(
+            ':id' => array('value' => $id, 'type' => PDO::PARAM_INT),
+            ':nome' => array('value' => $nome, 'type' => PDO::PARAM_STR_CHAR),
+            ':email' => array('value' => $email, 'type' => PDO::PARAM_STR_CHAR),
+            ':fone' => array('value' => $fone, 'type' => PDO::PARAM_INT),
+            ':curso' => array('value' => $curso, 'type' => PDO::PARAM_INT),
+            ':turma' => array('value' => $turma, 'type' => PDO::PARAM_INT),
+            ':superuser' => array('value' => $superuser, 'type' => PDO::PARAM_BOOL),
+            ':psswd' => array('value' => $psswd, 'type' => PDO::PARAM_STR_CHAR),
+        );
+
+        foreach ($params as $param => $data) {
+            $stmt->bindParam($param, $data['value'], $data['type']);
+        }
 
         $stmt->execute();
     } catch (PDOException $e) {
