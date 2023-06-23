@@ -80,7 +80,7 @@ senha
   <li>consertar requests_writer.php, ele não tá enviando as observações e o id do usuário</li>
   <li>impedir usuários e administradores de acessar as páginas /usuario/ e /administrador/ caso eles não estejam logados através do uso de tokens de sessão</li>
   <li>Criar sistema de verificação de email</li>
-  <li>Criar sistema de permissão de adminsitrador mais seguro, atualmente qualquer conta com um username de 7 caracteres têm permissão de administrador</li>
+  <li>Criar sistema de permissão de adminsitrador mais seguro, atualmente qualquer conta com um username de 7 caracteres tem permissão de administrador</li>
   <li>Criar sistema de alteção de situação de requerimentos pela tela /administrador/</li>
   <li>Seguir DRY e KISS</li>
 </ul>
