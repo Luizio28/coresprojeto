@@ -2,10 +2,10 @@ CREATE DATABASE requerimentos;
 USE requerimentos;
 
 CREATE TABLE usuario (
-    id INT(12) PRIMARY KEY,
+    id BIGINT(12) UNSIGNED PRIMARY KEY,
     nome CHAR(255) NOT NULL,
     email CHAR(255) NOT NULL,
-    fone INT(11),
+    fone BIGINT(11) UNSIGNED,
     curso INT(1) NOT NULL,
     turma INT(1),
     superuser BOOLEAN DEFAULT 0,
@@ -21,7 +21,7 @@ CREATE TABLE requerimento (
     anexo LONGBLOB NOT NULL,
     obs CHAR(255),
     situacao INT(1) NOT NULL,
-    usuario_id INT(12),
+    usuario_id BIGINT(12) UNSIGNED,
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
