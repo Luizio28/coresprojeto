@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="flex-row spaced-between">
-                    <label for="zap"> N° telefone (whatsapp)</label>
+                    <label for="fone"> N° telefone (whatsapp)</label>
                     <input maxlength="11" type="tel" name="fone" id="fone" required>
                 </div>
 
