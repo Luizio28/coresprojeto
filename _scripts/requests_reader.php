@@ -13,31 +13,33 @@ function echo_requests()
 
         echo "
         <table>
-            <tr>
-                <th>id</th>
-                <th>usuario</th>
-                <th>objeto</th>
-                <th>data inicio</th>
-                <th>data termino</th>
-                <th>data registro</th>
-                <th>anexo</th>
-                <th>observação</th>
-                <th>situação</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th scope='col'>id</th>
+                    <th scope='col'>usuario</th>
+                    <th scope='col'>objeto</th>
+                    <th scope='col'>data inicio</th>
+                    <th scope='col'>data termino</th>
+                    <th scope='col'>data registro</th>
+                    <th scope='col'>anexo</th>
+                    <th scope='col'>observação</th>
+                    <th scope='col'>situação</th>
+                </tr>
+            </thead>
         ";
 
         foreach ($res as $row) {
             echo "
             <tr>
-                <th>" . $row['id'] . "</th>
-                <th>" . $row['usuario_id'] . "</th>
-                <th>" . $row['objeto'] . "</th>
-                <th>" . $row['inicio'] . "</th>
-                <th>" . $row['termino'] . "</th>
-                <th>" . $row['registro'] . "</th>
-                <th>" . $row['anexo'] . "</th>
-                <th>" . $row['obs'] . "</th>
-                <th>" . $row['situacao'] . "</th>
+                <td>" . $row['id'] . "</td>
+                <td>" . $row['usuario_id'] . "</td>
+                <td>" . $row['objeto'] . "</td>
+                <td>" . $row['inicio'] . "</td>
+                <td>" . $row['termino'] . "</td>
+                <td>" . $row['registro'] . "</td>
+                <td>" . $row['anexo'] . "</td>
+                <td>" . $row['obs'] . "</td>
+                <td>" . $row['situacao'] . "</td>
             </tr>
             ";
         }
