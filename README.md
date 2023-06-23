@@ -64,12 +64,24 @@ senha
 
 <p>Gestao de requerimento</p>
 <ul>
-  <li>>disponivel ao coordenador e cores, accessado pelo inbox a interface para ler o deferimento por completo e gerir ele</li>
+  <li>disponivel ao coordenador e cores, accessado pelo inbox a interface para ler o deferimento por completo e gerir ele</li>
+</ul>
+
+<h1>Frontend</h1>
+<ul>
+  <li>fazer que a table em /administrador/ possa ser organizada de forma decrescente, crescente e etc</li>
+  <li>deixar explícito quando o usuário está logado</li>
+  <li>deixar explícito quando um requerimento foi enviado ou não</li>
 </ul>
 
 <h1>Backend</h1>
 <ul>
   <li>comunicação entre cliente e banco ...</li>
+  <li>consertar requests_writer.php, ele não tá enviando as observações e o id do usuário</li>
+  <li>impedir usuários e administradores de acessar as páginas /usuario/ e /administrador/ caso eles não estejam logados através do uso de tokens de sessão</li>
+  <li>Criar sistema de verificação de email</li>
+  <li>Criar sistema de permissão de adminsitrador mais seguro, atualmente qualquer conta com um username de 7 caracteres têm permissão de administrador</li>
+  <li>Criar sistema de alteção de situação de requerimentos pela tela /administrador/</li>
   <li>Seguir DRY e KISS</li>
 </ul>
 
@@ -82,7 +94,7 @@ senha
 
 <h1>Roadmap</h1>
 <pre>
-versao 0.x - esttruturar funções de comunicação com o banco
+versao 0.x - estruturar funções de comunicação com o banco
 versao 1.0 - banco de dados e funções basicas estruturadas junto com a interface
 versao 2.0 - css e interface completa
 </pre>

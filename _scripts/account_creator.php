@@ -19,7 +19,7 @@ if (isset($_POST['send'])) {
             ':fone' => array('value' => $_POST['fone'], 'type' => PDO::PARAM_INT),
             ':curso' => array('value' => $_POST['curso'], 'type' => PDO::PARAM_INT),
             ':turma' => array('value' => $_POST['turma'], 'type' => PDO::PARAM_INT),
-            ':superuser' => array('value' => false, 'type' => PDO::PARAM_BOOL),
+            ':superuser' => array('value' => strlen($_POST['id']) == 7, 'type' => PDO::PARAM_BOOL),
             ':psswd' => array('value' => $hashed_psswd, 'type' => PDO::PARAM_STR),
         );
 
