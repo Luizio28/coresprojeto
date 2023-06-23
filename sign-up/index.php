@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="flex-row spaced-between">
-                    <label for="nome">Nome</label>
+                    <label for="nome">Nome Completo</label>
                     <input maxlength="255" type="text" name="nome" required>
                 </div>
 
