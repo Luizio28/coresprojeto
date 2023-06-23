@@ -29,7 +29,7 @@ if (isset($_POST['send'])) {
 
         $stmt->execute();
 
-        setcookie("id", $_POST['id'], time() + 3600);
+        $_SESSION['id'] = $_POST['id'];
 
         $loc = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
         header("Location: ../$loc/");
