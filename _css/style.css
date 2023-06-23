@@ -74,12 +74,6 @@ main {
     height: max-content;
 }
 
-h1,
-h2,
-h3 {
-    text-wrap: balance;
-}
-
 label,
 input,
 p,
