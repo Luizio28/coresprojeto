@@ -8,8 +8,6 @@
 
     head_constructor("Lista de requerimentos");
     ?>
-
-    <script src="../_js/toggle.js"></script>
 </head>
 
 

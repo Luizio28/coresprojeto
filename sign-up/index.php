@@ -7,8 +7,6 @@
 
     head_constructor("sign-up");
     ?>
-
-    <script src="../_js/toggle.js"></script>
 </head>
 
 
