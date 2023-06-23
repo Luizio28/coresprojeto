@@ -12,7 +12,7 @@ if (isset($send)) {
         $hashed_psswd = password_hash($psswd, PASSWORD_DEFAULT);
 
         $stmt = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, curso, turma, superuser, psswd)
-        VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd");
+        VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd)");
 
         $params = array(
             ':id' => array('value' => $id, 'type' => PDO::PARAM_INT),
@@ -21,7 +21,7 @@ if (isset($send)) {
             ':fone' => array('value' => $fone, 'type' => PDO::PARAM_INT),
             ':curso' => array('value' => $curso, 'type' => PDO::PARAM_INT),
             ':turma' => array('value' => $turma, 'type' => PDO::PARAM_INT),
-            ':superuser' => array('value' => $superuser, 'type' => PDO::PARAM_BOOL),
+            ':superuser' => array('value' => null, 'type' => PDO::PARAM_BOOL),
             ':psswd' => array('value' => $psswd, 'type' => PDO::PARAM_STR_CHAR),
         );
 
