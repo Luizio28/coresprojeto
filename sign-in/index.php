@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -7,6 +8,8 @@
 
     head_constructor("sign-in");
     ?>
+
+    <meta name="description" content="Seja bem-vindo de volta! Essa é a página de login do site de requerimentos da CORES do IFBA Campus Eunápolis">
 </head>
 
 
@@ -24,16 +27,14 @@
                     <label for="id">
                         N° de matrícula
                     </label>
-
-                    <input maxlength="12" type="text" name="id" required>
+                    <input maxlength="12" type="text" name="id" id="id" required>
                 </div>
 
                 <div class="flex-row spaced-between">
                     <label for="psswd">
                         Senha
                     </label>
-
-                    <input maxlength="255" type="password" name="psswd" required>
+                    <input maxlength="255" type="password" name="psswd" id="psswd" required>
                 </div>
 
                 <div class="flex-row spaced-between">

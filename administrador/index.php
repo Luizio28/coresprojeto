@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -8,6 +9,8 @@
 
     head_constructor("Lista de requerimentos");
     ?>
+
+    <meta name="description" content="Essa é a página que os admins manejam os requerimentos enviados para a CORES do IFBA Campus Eunápolis">
 </head>
 
 

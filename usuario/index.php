@@ -9,7 +9,7 @@
     head_constructor("Novo requerimento");
     ?>
 
-    <script src="../_js/toggle.js"></script>
+    <meta name="description" id="description" content="Essa é a página em que requerimentos são escritos e enviados pelos usuários para CORES do IFBA Campus Eunápolis">
 </head>
 
 
@@ -28,11 +28,11 @@
                 </h1>
 
                 <div class="spaced-between box">
-                    <p>
+                    <label for="objeto">
                         O tipo de requerimento que está sendo feito
-                    </p>
+                    </label>
 
-                    <select name="objeto">
+                    <select name="objeto" id="objeto">
                         <option value="1">Justificativa de falta</option>
                         <option value="2">Segunda chamada</option>
                     </select>
@@ -43,43 +43,44 @@
                 </h1>
 
                 <div class="spaced-between box">
-                    <p>
+                    <label for="inicio">
                         Data em que faltas a serem justificadas começam
-                    </p>
+                    </label>
 
-                    <input type="date" name="inicio" required>
+                    <input type="date" name="inicio" id="inicio" required>
                 </div>
 
                 <h1>Data final</h1>
 
                 <div class="spaced-between box">
-                    <p>
+                    <label for="termino">
                         O último dia em que houve faltas
-                    </p>
+                    </label>
 
-                    <input type="date" name="termino" required>
+                    <input type="date" name="termino" id="termino" required>
                 </div>
 
                 <h1>Anexo</h1>
 
                 <div class="spaced-between box">
-                    <p class="inline">
-                        &emsp; Anexo único de <a class="inline" href="https://www.ilovepdf.com/jpg_to_pdf"> arquivo pdf </a> contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais. 
-                    </p>
+                    <label for="anexo" class="inline">
+                        &emsp; Anexo único de <a class="inline" href="https://www.ilovepdf.com/jpg_to_pdf"> arquivo pdf </a> contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fanexootografados ainda devem ser levados para a CORES por motivos legais.
+                    </label>
 
-                    <input type="file" name="anexo" accept=".pdf" required>
+                    <input type="file" name="anexo" id="anexo" accept=".pdf" required>
                 </div>
 
                 <h1>Observações</h1>
 
                 <div class="spaced-between box">
-                    <p>Infomações extras sobre o motivo da falta, caso seja necessário.</p>
-
-                    <textarea name="obs" cols="25" rows="10" maxlength="255" required></textarea>
+                    <label for="obs">
+                        Infomações extras sobre o motivo da falta, caso seja necessário.
+                    </label>
+                    <textarea name="obs" id="obs" cols="25" rows="10" maxlength="255" required></textarea>
                 </div>
 
                 <div>
-                    <input type="submit" name="send" value="criar">
+                    <input type="submit" name="send" id="send" value="criar">
                 </div>
             </form>
 
