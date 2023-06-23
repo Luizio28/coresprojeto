@@ -77,6 +77,7 @@ senha
 <ul>
   <li>seguir esquema de cores 60-30-10</li>
   <li>usar formato familiar com inbox de email</li>
+  <li>deixar css modular (sem um styles.css gigante por favor)</li>
 </ul>
 
 <h1>Roadmap</h1>
