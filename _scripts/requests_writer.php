@@ -1,11 +1,10 @@
 <?php
-include "../_scripts/sql_db_connector.php";
-
-extract($_POST);
 
 //high DRYification potential
 
-if (isset($send)) {
+if (isset($_POST['send'])) {
+    include "../_scripts/sql_db_connector.php";
+
     try {
         $pdo = connect_with_pdo();
 
@@ -19,16 +18,16 @@ if (isset($send)) {
 
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
-        $stmt->bindParam(':objeto', $objeto, PDO::PARAM_INT, 1);
-        $stmt->bindParam(':inicio', $inicio);
-        $stmt->bindParam(':termino', $termino);
+        $stmt->bindParam(':objeto', $_POST['objeto'], PDO::PARAM_INT, 1);
+        $stmt->bindParam(':inicio', $_POST['inicio']);
+        $stmt->bindParam(':termino', $_POST['termino']);
         $stmt->bindParam(':registro', $registro);
 
-        $stmt->bindParam(':anexo', $anexo, PDO::PARAM_LOB);
-        $stmt->bindParam(':obs', $obs, PDO::PARAM_STR_CHAR, 255);
-        $stmt->bindParam(':situacao', $situacao, PDO::PARAM_INT, 1);
+        $stmt->bindParam(':anexo', $_POST['anexo'], PDO::PARAM_LOB);
+        $stmt->bindParam(':obs', $_POST['obs'], PDO::PARAM_STR_CHAR, 255);
+        $stmt->bindParam(':situacao', $_POST['situacao'], PDO::PARAM_INT, 1);
 
-        $stmt->bindParam(':usuario_id', $usuario_id, PDO::PARAM_INT, 12);
+        $stmt->bindParam(':usuario_id', $_POST['usuario_id'], PDO::PARAM_INT, 12);
 
         $stmt->execute();
     } catch (PDOException $e) {

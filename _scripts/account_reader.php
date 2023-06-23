@@ -1,9 +1,7 @@
 <?php
-include "../_scripts/sql_db_connector.php";
+if (isset($_POST['send'])) {
+    include "../_scripts/sql_db_connector.php";
 
-extract($_POST);
-
-if (isset($send)) {
     try {
         $pdo = connect_with_pdo();
 
@@ -13,10 +11,10 @@ if (isset($send)) {
         $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($res as $row) {
-            if ($nome == $row['id'] & password_verify($psswd, $row['psswd'])) {
+            if ($_POST['$nome'] == $row['id'] & password_verify($_POST['$psswd'], $row['psswd'])) {
                 $sucess = true;
                 setcookie("id", $row['id'], time() + 3600);
-                header("Location: ../" . strlen($nome) > 7 ? "usuario" : "administrador" . "/");
+                header("Location: ../" . strlen($_POST['$nome']) > 7 ? "usuario" : "administrador" . "/");
             }
         }
         if (!$sucess) {
