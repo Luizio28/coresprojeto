@@ -20,9 +20,7 @@
         <div class="flex-column">
             <h1>Requerimentos</h1>
 
-            <div class="flex-grid">
-                <?php echo_requests(); ?>
-            </div>
+            <?php echo_requests(); ?>
         </div>
     </main>
 
