@@ -22,11 +22,6 @@ if (isset($_POST['send'])) {
 
         $stmt->bindParam(':usuario_id', $_SESSION['id'], PDO::PARAM_STR, 12);
 
-        echo "Cookie: ".$_SESSION['id'];
-        foreach ($_POST as $p => $n) {
-            print("<br>P: " . $p . "<br>N: " . $n);
-        }
-
         $stmt->execute();
     } catch (PDOException $e) {
         handle_pdo_exception($e);
