@@ -13,14 +13,14 @@ if (isset($_POST['send'])) {
         $stmt = $pdo->prepare("INSERT INTO requerimento (objeto, inicio, termino, anexo, obs, usuario_id)
                                VALUES (:objeto, :inicio, :termino, :anexo, :obs, :usuario_id)");
 
-        $stmt->bindParam(':objeto', $_POST['objeto'], PDO::PARAM_INT, 1);
+        $stmt->bindParam(':objeto', $_POST['objeto']);
         $stmt->bindParam(':inicio', $_POST['inicio']);
         $stmt->bindParam(':termino', $_POST['termino']);
 
-        $stmt->bindParam(':anexo', $_POST['anexo'], PDO::PARAM_LOB);
-        $stmt->bindParam(':obs', $_POST['obs'], PDO::PARAM_INPUT_OUTPUT | PDO::PARAM_STR, 255);
+        $stmt->bindParam(':anexo', $_POST['anexo']);
+        $stmt->bindParam(':obs', $_POST['obs']);
 
-        $stmt->bindParam(':usuario_id', $_COOKIE['id'], PDO::PARAM_STR, 12);
+        $stmt->bindParam(':usuario_id', $_COOKIE['id']);
 
         $stmt->execute();
     } catch (PDOException $e) {

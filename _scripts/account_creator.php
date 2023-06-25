@@ -13,18 +13,18 @@ if (isset($_POST['send'])) {
             VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd)");
 
         $params = array(
-            ':id' => array('value' => $_POST['id'], 'type' => PDO::PARAM_INT),
-            ':nome' => array('value' => $_POST['nome'], 'type' => PDO::PARAM_STR),
-            ':email' => array('value' => $_POST['email'], 'type' => PDO::PARAM_STR),
-            ':fone' => array('value' => $_POST['fone'], 'type' => PDO::PARAM_INT),
-            ':curso' => array('value' => $_POST['curso'], 'type' => PDO::PARAM_INT),
-            ':turma' => array('value' => $_POST['turma'], 'type' => PDO::PARAM_INT),
-            ':superuser' => array('value' => strlen($_POST['id']) == 7, 'type' => PDO::PARAM_BOOL),
-            ':psswd' => array('value' => $hashed_psswd, 'type' => PDO::PARAM_STR),
+            ':id' => $_POST['id'],
+            ':nome' => $_POST['nome'],
+            ':email' => $_POST['email'],
+            ':fone' => $_POST['fone'],
+            ':curso' => $_POST['curso'],
+            ':turma' => $_POST['turma'],
+            ':superuser' => strlen($_POST['id']) == 7,
+            ':psswd' => $hashed_psswd,
         );
 
         foreach ($params as $param => $data) {
-            $stmt->bindParam($param, $data['value'], $data['type']);
+            $stmt->bindParam($param, $data);
         }
 
         $stmt->execute();
