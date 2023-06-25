@@ -46,7 +46,6 @@ footer {
     bottom: 0;
 
     padding: 1em 0em 1em 0em;
-    max-width: 100%;
 }
 
 header,
@@ -75,10 +74,13 @@ a {
     margin: 1em;
 }
 
+th,
+td {
+    border: 1px solid var(--p-black-04);
+}
+
 input,
 select {
-    width: 16em;
-
     background-color: var(--p-white-02);
 
     border: 1px solid var(--p-black-04);
@@ -165,9 +167,9 @@ select:hover {
     text-decoration: none;
 }
 
-.inline{
+.inline {
     display: inline-block;
-    margin:0;
+    margin: 0;
 }
 
 #add {
@@ -181,9 +183,4 @@ select:hover {
 
 #add:hover {
     color: var(--p-black-03);
-}
-
-.ico{
-    width:1em;
-
 }
