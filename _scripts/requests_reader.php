@@ -15,15 +15,15 @@ function echo_requests()
         <table>
             <thead>
                 <tr>
-                    <th scope='col'onclick='sortTable(0)'>id</th>
-                    <th scope='col'onclick='sortTable(1)'>usuario</th>
-                    <th scope='col'onclick='sortTable(2)'>objeto</th>
-                    <th scope='col'onclick='sortTable(3)'>inicio</th>
-                    <th scope='col'onclick='sortTable(4)'>termino</th>
-                    <th scope='col'onclick='sortTable(5)'>registro</th>
-                    <th scope='col'onclick='sortTable(6)'>anexo</th>
-                    <th scope='col'onclick='sortTable(7)'>observação</th>
-                    <th scope='col'onclick='sortTable(8)'>situação</th>
+                    <th scope='col' onclick='sortTable(0)'>id</th>
+                    <th scope='col' onclick='sortTable(1)'>usuario</th>
+                    <th scope='col' onclick='sortTable(2)'>objeto</th>
+                    <th scope='col' onclick='sortTable(3)'>inicio</th>
+                    <th scope='col' onclick='sortTable(4)'>termino</th>
+                    <th scope='col' onclick='sortTable(5)'>registro</th>
+                    <th scope='col' onclick='sortTable(6)'>anexo</th>
+                    <th scope='col' onclick='sortTable(7)'>observação</th>
+                    <th scope='col' onclick='sortTable(8)'>situação</th>
                 </tr>
             </thead>
         ";
