@@ -15,7 +15,7 @@
 
 <body>
     <?php
-    show("../_templates/header.html");
+    include "../_templates/header.php";
     ?>
 
     <main>
@@ -33,8 +33,8 @@
                     </label>
 
                     <select name="objeto" id="objeto">
-                        <option value="1">Justificativa de falta</option>
-                        <option value="2">Segunda chamada</option>
+                        <option value="0">Justificativa de falta</option>
+                        <option value="1">Segunda chamada</option>
                     </select>
                 </div>
 

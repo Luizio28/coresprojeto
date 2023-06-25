@@ -18,7 +18,7 @@ if (isset($_POST['send'])) {
         if (!$sucess) {
             header("Location: ../sign-in");
         } else {
-            setcookie("id", $row['id'], time() + 3600);
+            setcookie('id', $row['id'], time() + 3600, "/");
 
             $loc = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
             header("Location: ../$loc/");

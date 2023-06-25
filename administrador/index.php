@@ -16,7 +16,7 @@
 
 <body>
     <?php
-    show("../_templates/header.html");
+    include "../_templates/header.php";
     ?>
 
     <main>
