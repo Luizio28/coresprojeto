@@ -78,7 +78,7 @@ th,
 td,
 thead,
 tbody {
-    border: 1px solid var(--p-black-04);
+    border: thin solid var(--p-black-04);
     padding:1em;
 }
 
@@ -91,7 +91,7 @@ input,
 select {
     background-color: var(--p-white-02);
 
-    border: 1px solid var(--p-black-04);
+    border: thin solid var(--p-black-04);
     border-radius: .5em;
 }
 
