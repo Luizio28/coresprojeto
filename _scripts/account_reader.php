@@ -12,7 +12,9 @@ if (isset($_POST['send'])) {
 
         $sucess = false;
         foreach ($res as $row) {
-            $sucess = $_POST['id'] == $row['id'] & password_verify($_POST['psswd'], $row['psswd']) ? true : $sucess;
+            $valid_username = $_POST['id'] == $row['id'];
+            $valid_password = password_verify($_POST['psswd'], $row['psswd']);
+            $sucess =  $valid_username & $valid_password? true : $sucess;
         }
 
         if (!$sucess) {
