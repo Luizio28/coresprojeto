@@ -12,7 +12,7 @@ function echo_requests()
         $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         echo "
-        <table>
+        <table id='table' class'standard-width'>
             <thead>
                 <tr>
                     <th scope='col' onclick='sortTable(0)'>id</th>
@@ -63,73 +63,14 @@ function echo_requests()
                 <td>" . $row['inicio'] . "</td>
                 <td>" . $row['termino'] . "</td>
                 <td>" . $row['registro'] . "</td>
-                <td>" . $row['anexo'] . "</td>
-                <td>" . $row['obs'] . "</td>
+                <td class='break-text'>" . $row['anexo'] . "</td>
+                <td class='break-text'>" . $row['obs'] . "</td>
                 <td>" . $situation . "</td>
             </tr>
             ";
         }
         echo "
         </table>
-        ";
-
-        echo"
-        <script>
-            function sortTable(n) {
-            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-            table = document.getElementById('myTable');
-            switching = true;
-            //Set the sorting direction to ascending:
-            dir = 'asc'; 
-            /*Make a loop that will continue until
-            no switching has been done:*/
-            while (switching) {
-                //start by saying: no switching is done:
-                switching = false;
-                rows = table.rows;
-                /*Loop through all table rows (except the
-                first, which contains table headers):*/
-                for (i = 1; i < (rows.length - 1); i++) {
-                //start by saying there should be no switching:
-                shouldSwitch = false;
-                /*Get the two elements you want to compare,
-                one from current row and one from the next:*/
-                x = rows[i].getElementsByTagName('TD')[n];
-                y = rows[i + 1].getElementsByTagName('TD')[n];
-                /*check if the two rows should switch place,
-                based on the direction, asc or desc:*/
-                if (dir == 'asc') {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    //if so, mark as a switch and break the loop:
-                    shouldSwitch= true;
-                    break;
-                    }
-                } else if (dir == 'desc') {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    //if so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
-                    }
-                }
-                }
-                if (shouldSwitch) {
-                /*If a switch has been marked, make the switch
-                and mark that a switch has been done:*/
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                //Each time a switch is done, increase this count by 1:
-                switchcount ++;      
-                } else {
-                /*If no switching has been done AND the direction is 'asc',
-                set the direction to 'desc' and run the while loop again.*/
-                if (switchcount == 0 && dir == 'asc') {
-                    dir = 'desc';
-                    switching = true;
-                }
-                }
-            }
-            }
-            </script>
         ";
     } catch (PDOException $e) {
         handle_pdo_exception($e);

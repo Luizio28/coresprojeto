@@ -75,8 +75,16 @@ a {
 }
 
 th,
-td {
+td,
+thead,
+tbody {
     border: 1px solid var(--p-black-04);
+    padding:1em;
+}
+
+table{
+    margin:2em;
+    max-width: 70em;
 }
 
 input,
@@ -105,6 +113,7 @@ select:hover {
 
 .standard-width {
     width: 36em;
+    max-width: 36em;
 }
 
 .box {
@@ -161,6 +170,11 @@ select:hover {
 
 .flex-grid {
     flex-wrap: wrap;
+}
+
+.break-text{
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .no-deco {
