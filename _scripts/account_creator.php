@@ -12,20 +12,16 @@ if (isset($_POST['send'])) {
         $stmt = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, curso, turma, superuser, psswd)
             VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd)");
 
-        $params = array(
-            ':id' => $_POST['id'],
-            ':nome' => $_POST['nome'],
-            ':email' => $_POST['email'],
-            ':fone' => $_POST['fone'],
-            ':curso' => $_POST['curso'],
-            ':turma' => $_POST['turma'],
-            ':superuser' => strlen($_POST['id']) == 7,
-            ':psswd' => $hashed_psswd,
-        );
+        $is_super = strlen($_POST['id']) == 7;
 
-        foreach ($params as $param => $data) {
-            $stmt->bindParam($param, $data);
-        }
+        $stmt->bindParam(':id', $_POST['id']);
+        $stmt->bindParam(':nome', $_POST['nome']);
+        $stmt->bindParam(':email', $_POST['email']);
+        $stmt->bindParam(':fone', $_POST['fone']);
+        $stmt->bindParam(':curso', $_POST['curso']);
+        $stmt->bindParam(':turma', $_POST['turma']);
+        $stmt->bindParam(':superuser', $is_super);
+        $stmt->bindParam(':psswd', $hashed_psswd);
 
         $stmt->execute();
 

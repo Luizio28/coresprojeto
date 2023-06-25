@@ -16,10 +16,8 @@ if (isset($_POST['send'])) {
         $stmt->bindParam(':objeto', $_POST['objeto']);
         $stmt->bindParam(':inicio', $_POST['inicio']);
         $stmt->bindParam(':termino', $_POST['termino']);
-
         $stmt->bindParam(':anexo', $_POST['anexo']);
         $stmt->bindParam(':obs', $_POST['obs']);
-
         $stmt->bindParam(':usuario_id', $_COOKIE['id']);
 
         $stmt->execute();
