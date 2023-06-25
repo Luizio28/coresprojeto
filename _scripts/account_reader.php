@@ -5,27 +5,24 @@ if (isset($_POST['send'])) {
     try {
         $pdo = connect_with_pdo();
 
-        $stmt = $pdo->prepare("SELECT id,psswd FROM usuario");
-        $stmt->execute();
+        $statement = $pdo->prepare("SELECT id,psswd,superuser FROM usuario");
+        $statement->execute();
 
-        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $sucess = false;
-        foreach ($res as $row) {
+        foreach ($result as $row) {
             $valid_username = $_POST['id'] == $row['id'];
             $valid_password = password_verify($_POST['psswd'], $row['psswd']);
-            $sucess =  $valid_username & $valid_password? true : $sucess;
-        }
 
-        if (!$sucess) {
-            header("Location: ../sign-in");
-        } else {
-            setcookie('id', $row['id'], time() + 3600, "/");
+            if ($valid_username & $valid_password) {
 
-            $loc = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
-            header("Location: ../$loc/");
+                setcookie('id', $row['id'], time() + 3600, "/");
+
+                $loc = $row['superuser'] == 1? "usuario" : "administrador";
+                header("Location: ../$loc/");
+            }
         }
-    } catch (PDOException $e) {
-        handle_pdo_exception($e);
+    } catch (PDOException $exception) {
+        handle_pdo_exception($exception);
     }
 }
