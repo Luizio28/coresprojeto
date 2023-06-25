@@ -4,8 +4,9 @@
 <head>
     <?php
     include "../_templates/echoer.php";
-    include "../_scripts/requests_reader.php";
     include "../_templates/head.php";
+    
+    include "../_scripts/requests_reader.php";
 
     head_constructor("Lista de requerimentos");
     ?>
