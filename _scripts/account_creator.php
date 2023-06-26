@@ -25,7 +25,7 @@ if (isset($_POST['send'])) {
 
         $statement->execute();
 
-        setcookie('id', $row['id'], time() + 3600, "/");
+        setcookie('id', $_POST['id'], time() + 3600, "/");
 
         $directory = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
         header("Location: ../$directory/");
