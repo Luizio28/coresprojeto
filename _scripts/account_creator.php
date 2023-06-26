@@ -27,7 +27,7 @@ if (isset($_POST['send'])) {
 
         setcookie('id', $_POST['id'], time() + 3600, "/");
 
-        $directory = $superuser? "administrador" : "usuario";
+        $directory = $is_superuser? "administrador" : "usuario";
 
         header("Location: ../$directory/");
 
