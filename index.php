@@ -1,3 +1,2 @@
 <?php
-header("Location: ./sign-in/");
-exit;
+include "./_scripts/session_validator.php";

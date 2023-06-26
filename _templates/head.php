@@ -1,7 +1,13 @@
 <?php
-function head_constructor($title)
+function head_constructor($title, $su = false)
 {
     session_start();
+
+    $superuser_only = $su;
+    $is_sign_in = $title == "sign-in" | $title == "sign-up";
+
+    include "../_scripts/session_validator.php";
+
     echo "
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>

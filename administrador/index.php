@@ -6,9 +6,9 @@
     include "../_templates/echoer.php";
     include "../_templates/head.php";
 
-    include "../_scripts/requests_reader.php";
+    head_constructor("Lista de requerimentos", true);
 
-    head_constructor("Lista de requerimentos");
+    include "../_scripts/requests_reader.php";
     ?>
 
     <meta name="description" content="Essa é a página que os admins manejam os requerimentos enviados para a CORES do IFBA Campus Eunápolis">
