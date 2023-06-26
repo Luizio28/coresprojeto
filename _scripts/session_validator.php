@@ -3,11 +3,6 @@
 
 $valid_session_id = isset($_SESSION['id']);
 
-if ($is_sign_in & $valid_session_id) {
-    header("Location: ../" . $_SESSION['directory'] . "/");
-    exit;
-}
-
 if ($superuser_only) {
     $is_superuser = $_SESSION['superuser'] == true;
     $valid_session = $is_superuser & $valid_session_id;
@@ -15,11 +10,10 @@ if ($superuser_only) {
     $valid_session = $valid_session_id;
 }
 
-
-if ($valid_session_id & !$valid_session) {
+if ($valid_session_id & !$valid_session | $is_sign_in & $valid_session_id) {
     header("Location: ../" . $_SESSION['directory'] . "/");
     exit;
-} else if (!$valid_session_id & !$valid_session) {
+} else if (!$valid_session_id & !$valid_session & !$is_sign_in) {
     header("Location: ../sign-in/");
     exit;
 }
