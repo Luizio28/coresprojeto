@@ -1,25 +1,30 @@
 <?php
-if (isset($_POST['send'])) {
+if (isset($_POST['id']) & isset($_POST['psswd'])) {
     include "../_scripts/sql_db_connector.php";
 
     try {
         $pdo = connect_with_pdo();
 
-        $statement = $pdo->prepare("SELECT id,psswd,superuser FROM usuario");
+        $statement = $pdo->prepare("SELECT psswd,superuser FROM usuario WHERE id=:id");
+
+        $statement->bindParam(':id', $_POST['id']);
+
         $statement->execute();
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($result as $row) {
-            $valid_username = $_POST['id'] == $row['id'];
-            $valid_password = password_verify($_POST['psswd'], $row['psswd']);
+        $valid_username = count($result) == 1;
 
-            if ($valid_username & $valid_password) {
-                setcookie('id', $row['id'], time() + 3600, "/");
+        if ($valid_username) {
+            $valid_password = password_verify($_POST['psswd'], $result[0]['psswd']);
 
-                $directory = $row['superuser'] == 1? "administrador":"usuario";
+            if ($valid_password) {
+                $_SESSION['id'] = $_POST['id'];
+
+                $directory = $row['superuser'] == 1 ? "administrador" : "usuario";
 
                 header("Location: ../$directory/");
+                exit;
             }
         }
     } catch (PDOException $exception) {
