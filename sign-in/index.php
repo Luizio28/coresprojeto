@@ -22,7 +22,7 @@
         <div class="flex-column">
             <h1>Login</h1>
 
-            <form method="post" action="../_scripts/account_reader.php" class="box">
+            <form method="post" class="box">
                 <div class="flex-row spaced-between">
                     <label for="id">
                         N° de matrícula
@@ -42,6 +42,10 @@
                     <a href="../sign-up/">Não tem conta?</a>
                 </div>
             </form>
+
+            <?php
+            include "../_scripts/account_reader.php";
+            ?>
         </div>
     </main>
 
