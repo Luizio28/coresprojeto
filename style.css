@@ -56,7 +56,7 @@ footer {
 
     width: 100%;
 
-    background-color: var(--p-01);
+    background-color: var(--p-white-01);
 }
 
 main {
@@ -79,11 +79,11 @@ td,
 thead,
 tbody {
     border: thin solid var(--p-black-04);
-    padding:1em;
+    padding: 1em;
 }
 
-table{
-    margin:2em;
+table {
+    margin: 2em;
     max-width: 70em;
 }
 
@@ -168,7 +168,7 @@ select:hover {
     flex-wrap: wrap;
 }
 
-.break-text{
+.break-text {
     word-wrap: break-word;
     word-break: break-all;
 }
