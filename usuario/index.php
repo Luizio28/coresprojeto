@@ -64,7 +64,7 @@
 
                 <div class="spaced-between box">
                     <label for="anexo" class="inline">
-                        &emsp; Anexo único de <a class="inline" href="https://www.ilovepdf.com/jpg_to_pdf"> arquivo pdf </a> contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fanexootografados ainda devem ser levados para a CORES por motivos legais.
+                        &emsp; Anexo único de <a class="inline" href="https://www.ilovepdf.com/jpg_to_pdf"> arquivo pdf </a> contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais.
                     </label>
 
                     <input type="file" name="anexo" id="anexo" accept=".pdf" required>
