@@ -7,29 +7,29 @@ if (isset($_POST['send'])) {
 
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        $hashed_psswd = password_hash($_POST['psswd'], PASSWORD_DEFAULT);
+        $hashed_password = password_hash($_POST['psswd'], PASSWORD_DEFAULT);
 
-        $stmt = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, curso, turma, superuser, psswd)
+        $statement = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, curso, turma, superuser, psswd)
             VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd)");
 
-        $is_super = strlen($_POST['id']) == 7;
+        $is_superuser = strlen($_POST['id']) == 7;
 
-        $stmt->bindParam(':id', $_POST['id']);
-        $stmt->bindParam(':nome', $_POST['nome']);
-        $stmt->bindParam(':email', $_POST['email']);
-        $stmt->bindParam(':fone', $_POST['fone']);
-        $stmt->bindParam(':curso', $_POST['curso']);
-        $stmt->bindParam(':turma', $_POST['turma']);
-        $stmt->bindParam(':superuser', $is_super);
-        $stmt->bindParam(':psswd', $hashed_psswd);
+        $statement->bindParam(':id', $_POST['id']);
+        $statement->bindParam(':nome', $_POST['nome']);
+        $statement->bindParam(':email', $_POST['email']);
+        $statement->bindParam(':fone', $_POST['fone']);
+        $statement->bindParam(':curso', $_POST['curso']);
+        $statement->bindParam(':turma', $_POST['turma']);
+        $statement->bindParam(':superuser', $is_superuser);
+        $statement->bindParam(':psswd', $hashed_password);
 
-        $stmt->execute();
+        $statement->execute();
 
         setcookie('id', $row['id'], time() + 3600, "/");
 
-        $loc = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
-        header("Location: ../$loc/");
-    } catch (PDOException $e) {
-        handle_pdo_exception($e);
+        $directory = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
+        header("Location: ../$directory/");
+    } catch (PDOException $exception) {
+        handle_pdo_exception($exception);
     }
 }

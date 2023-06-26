@@ -10,18 +10,18 @@ if (isset($_POST['send'])) {
 
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        $stmt = $pdo->prepare("INSERT INTO requerimento (objeto, inicio, termino, anexo, obs, usuario_id)
+        $statement = $pdo->prepare("INSERT INTO requerimento (objeto, inicio, termino, anexo, obs, usuario_id)
             VALUES (:objeto, :inicio, :termino, :anexo, :obs, :usuario_id)");
 
-        $stmt->bindParam(':objeto', $_POST['objeto']);
-        $stmt->bindParam(':inicio', $_POST['inicio']);
-        $stmt->bindParam(':termino', $_POST['termino']);
-        $stmt->bindParam(':anexo', $_POST['anexo']);
-        $stmt->bindParam(':obs', $_POST['obs']);
-        $stmt->bindParam(':usuario_id', $_COOKIE['id']);
+        $statement->bindParam(':objeto', $_POST['objeto']);
+        $statement->bindParam(':inicio', $_POST['inicio']);
+        $statement->bindParam(':termino', $_POST['termino']);
+        $statement->bindParam(':anexo', $_POST['anexo']);
+        $statement->bindParam(':obs', $_POST['obs']);
+        $statement->bindParam(':usuario_id', $_COOKIE['id']);
 
-        $stmt->execute();
-    } catch (PDOException $e) {
-        handle_pdo_exception($e);
+        $statement->execute();
+    } catch (PDOException $exception) {
+        handle_pdo_exception($exception);
     }
 }

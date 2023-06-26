@@ -25,14 +25,14 @@ function connect_with_pdo()
     return new PDO($dsn, $config['db_user'], $config['db_pass']);
 }
 
-function handle_pdo_exception(PDOException $e)
+function handle_pdo_exception(PDOException $exception)
 {
     echo "
     <div class='flex-column'>
         <h1>ERRO</h1>
         
         <div class='box'>
-            <p>" . $e->getMessage() . "</p>
+            <p>" . $exception->getMessage() . "</p>
         </div>
     </div>
     ";

@@ -6,10 +6,10 @@ function echo_requests()
     try {
         $pdo = connect_with_pdo();
 
-        $stmt = $pdo->prepare("SELECT * FROM requerimento");
-        $stmt->execute();
+        $statement = $pdo->prepare("SELECT * FROM requerimento");
+        $statement->execute();
 
-        $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         echo "
         <table id='table' class'standard-width'>
@@ -28,7 +28,7 @@ function echo_requests()
             </thead>
         ";
 
-        foreach ($res as $row) {
+        foreach ($result as $row) {
             $object = "";
             switch ($row['objeto']) {
                 case "0":
@@ -72,8 +72,8 @@ function echo_requests()
         echo "
         </table>
         ";
-    } catch (PDOException $e) {
-        handle_pdo_exception($e);
+    } catch (PDOException $exception) {
+        handle_pdo_exception($exception);
     }
 }
 ?>

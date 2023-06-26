@@ -15,11 +15,11 @@ if (isset($_POST['send'])) {
             $valid_password = password_verify($_POST['psswd'], $row['psswd']);
 
             if ($valid_username & $valid_password) {
-
                 setcookie('id', $row['id'], time() + 3600, "/");
 
-                $loc = $row['superuser'] == 1? "usuario" : "administrador";
-                header("Location: ../$loc/");
+                $directory = $row['superuser'] == 1? "usuario" : "administrador";
+
+                header("Location: ../$directory/");
             }
         }
     } catch (PDOException $exception) {
