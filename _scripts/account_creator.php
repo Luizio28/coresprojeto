@@ -25,9 +25,11 @@ if (isset($_POST['send'])) {
 
         $statement->execute();
 
-        $_SESSION['id'] = $_POST['id'];
-
         $directory = $is_superuser ? "administrador" : "usuario";
+
+        $_SESSION['id'] = $_POST['id'];
+        $_SESSION['directory'] = $directory;
+        $_SESSION['superuser'] = $is_superuser;
 
         header("Location: ../$directory/");
         exit;

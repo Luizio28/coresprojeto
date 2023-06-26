@@ -19,9 +19,11 @@ if (isset($_POST['id']) & isset($_POST['psswd'])) {
             $valid_password = password_verify($_POST['psswd'], $result[0]['psswd']);
 
             if ($valid_password) {
-                $_SESSION['id'] = $_POST['id'];
-
                 $directory = $result[0]['superuser'] == 1 ? "administrador" : "usuario";
+
+                $_SESSION['id'] = $_POST['id'];
+                $_SESSION['directory'] = $directory;
+                $_SESSION['superuser'] = $result[0]['superuser'];
 
                 header("Location: ../$directory/");
                 exit;
