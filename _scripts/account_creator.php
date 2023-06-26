@@ -25,12 +25,12 @@ if (isset($_POST['send'])) {
 
         $statement->execute();
 
-        setcookie('id', $_POST['id'], time() + 3600, "/");
+        $_SESSION['id'] = $_POST['id'];
 
-        $directory = $is_superuser? "administrador" : "usuario";
+        $directory = $is_superuser ? "administrador" : "usuario";
 
         header("Location: ../$directory/");
-
+        exit;
     } catch (PDOException $exception) {
         handle_pdo_exception($exception);
     }
