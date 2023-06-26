@@ -5,7 +5,7 @@
     <?php
     include "../_templates/echoer.php";
     include "../_templates/head.php";
-    
+
     head_constructor("Novo requerimento");
     ?>
 
@@ -23,11 +23,11 @@
             <h1>Novo requerimento</h1>
 
             <form id="create-new" class="center-flex flex-column" method="post">
-                <h1>
-                    Objeto do requerimento
-                </h1>
-
                 <div class="spaced-between box">
+                    <b>
+                        Objeto do requerimento
+                    </b>
+
                     <label for="objeto">
                         O tipo de requerimento que está sendo feito
                     </label>
@@ -38,11 +38,11 @@
                     </select>
                 </div>
 
-                <h1>
-                    Data inicial
-                </h1>
-
                 <div class="spaced-between box">
+                    <b>
+                        Data inicial
+                    </b>
+
                     <label for="inicio">
                         Data em que faltas a serem justificadas começam
                     </label>
@@ -50,9 +50,11 @@
                     <input type="date" name="inicio" id="inicio" required>
                 </div>
 
-                <h1>Data final</h1>
-
                 <div class="spaced-between box">
+                    <b>
+                        Data final
+                    </b>
+
                     <label for="termino">
                         O último dia em que houve faltas
                     </label>
@@ -60,23 +62,31 @@
                     <input type="date" name="termino" id="termino" required>
                 </div>
 
-                <h1>Anexo</h1>
-
                 <div class="spaced-between box">
+                    <b>
+                        Anexo
+                    </b>
+
                     <label for="anexo" class="inline">
-                        &emsp; Anexo único de <a class="inline" href="https://www.ilovepdf.com/jpg_to_pdf"> arquivo pdf </a> contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais.
+                        &emsp; Anexo único de arquivo pdf contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais.
                     </label>
 
-                    <input type="file" name="anexo" id="anexo" accept=".pdf" required>
+                    <div class="flex-row">
+                        <a class="inline" href="https://www.ilovepdf.com/jpg_to_pdf">site para criar pdf</a>
+
+                        <input type="file" name="anexo" id="anexo" accept=".pdf" required>
+                    </div>
                 </div>
 
-                <h1>Observações</h1>
-
                 <div class="spaced-between box">
+                    <b>
+                        Observações
+                    </b>
+
                     <label for="obs">
                         Infomações extras sobre o motivo da falta, caso seja necessário.
                     </label>
-                    <textarea name="obs" id="obs" cols="25" rows="10" maxlength="255" required></textarea>
+                    <textarea name="obs" id="obs" cols="50" rows="10" maxlength="255" value="Nda" required></textarea>
                 </div>
 
                 <div>
