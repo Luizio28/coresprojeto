@@ -21,7 +21,7 @@ if (isset($_POST['id']) & isset($_POST['psswd'])) {
             if ($valid_password) {
                 $_SESSION['id'] = $_POST['id'];
 
-                $directory = $row['superuser'] == 1 ? "administrador" : "usuario";
+                $directory = $result[0]['superuser'] == 1 ? "administrador" : "usuario";
 
                 header("Location: ../$directory/");
                 exit;
