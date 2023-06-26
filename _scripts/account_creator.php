@@ -27,8 +27,10 @@ if (isset($_POST['send'])) {
 
         setcookie('id', $_POST['id'], time() + 3600, "/");
 
-        $directory = strlen($_POST['id']) == 12 ? "usuario" : "administrador";
+        $directory = $superuser == 1? "administrador" : "usuario";
+
         header("Location: ../$directory/");
+
     } catch (PDOException $exception) {
         handle_pdo_exception($exception);
     }

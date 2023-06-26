@@ -17,7 +17,7 @@ if (isset($_POST['send'])) {
             if ($valid_username & $valid_password) {
                 setcookie('id', $row['id'], time() + 3600, "/");
 
-                $directory = $row['superuser'] == 1? "usuario" : "administrador";
+                $directory = $row['superuser'] == 1? "administrador":"usuario";
 
                 header("Location: ../$directory/");
             }
