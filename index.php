@@ -1,3 +1,3 @@
 <?php
 header("Location: ./sign-in/");
-exit();
+exit;
