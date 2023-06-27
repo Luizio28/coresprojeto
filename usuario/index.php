@@ -23,7 +23,7 @@
             <h1>Novo requerimento</h1>
 
             <form id="create-new" class="center-flex flex-column" method="post">
-                <div class="spaced-between box">
+                <div class="spaced-between box flex-column">
                     <b>
                         Objeto do requerimento
                     </b>
@@ -38,7 +38,7 @@
                     </select>
                 </div>
 
-                <div class="spaced-between box">
+                <div class="spaced-between box flex-column">
                     <b>
                         Data inicial
                     </b>
@@ -50,7 +50,7 @@
                     <input type="date" name="inicio" id="inicio" required>
                 </div>
 
-                <div class="spaced-between box">
+                <div class="spaced-between box flex-column">
                     <b>
                         Data final
                     </b>
@@ -62,7 +62,7 @@
                     <input type="date" name="termino" id="termino" required>
                 </div>
 
-                <div class="spaced-between box">
+                <div class="spaced-between box flex-column">
                     <b>
                         Anexo Único
                     </b>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <div class="spaced-between box">
+                <div class="spaced-between box flex-column">
                     <b>
                         Observações
                     </b>

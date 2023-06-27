@@ -31,7 +31,7 @@ function handle_pdo_exception(PDOException $exception)
     <div class='flex-column'>
         <h1>ERRO</h1>
         
-        <div class='box'>
+        <div class='box flex-column'>
             <p>" . $exception->getMessage() . "</p>
         </div>
     </div>

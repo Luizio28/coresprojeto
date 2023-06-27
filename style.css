@@ -91,9 +91,6 @@ select:hover {
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
     max-width: 35em;
     height: fit-content;
@@ -108,23 +105,18 @@ select:hover {
     font: 1em "mono";
 }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
+.flex-column, .flex-row, .flex-grid{
+    justify-content: center;
     align-items: center;
+    display: flex;
+}
+
+.flex-column {
     flex-direction: column;
 }
 
 .flex-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     flex-direction: row;
-}
-
-.spaced-between {
-    justify-content: space-between;
-    width: 100%;
 }
 
 .flex-grid {
@@ -134,6 +126,16 @@ select:hover {
 .break-text {
     word-wrap: break-word;
     word-break: break-all;
+}
+
+.inline {
+    display: inline-block;
+    margin: 0;
+}
+
+.spaced-between {
+    justify-content: space-between;
+    width: 100%;
 }
 
 .no-deco {
@@ -149,20 +151,4 @@ select:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.inline {
-    display: inline-block;
-    margin: 0;
-}
-
-#add {
-    font-size: 5em;
-    color: var(--p-white-01);
-    background-color: transparent;
-    border: 0;
-}
-
-#add:hover {
-    color: var(--p-black-03);
 }

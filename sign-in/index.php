@@ -22,7 +22,7 @@
         <div class="flex-column">
             <h1>Login</h1>
 
-            <form method="post" class="box">
+            <form method="post" class="box flex-column">
                 <div class="flex-row spaced-between">
                     <label for="id">
                         N° de matrícula
@@ -57,7 +57,7 @@
 </html>
 
 <!-- 
-<form class="box" id="login">
+<form class="box flex-column" id="login">
     <div class="flex-row spaced-between">
         <label for="id">
             N° de matrícula

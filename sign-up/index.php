@@ -21,7 +21,7 @@
     <main>
         <div class="flex-column">
             <h1>Bem-vindo!</h1>
-            <form id="create-new" class="center-flex flex-column box" method="post">
+            <form id="create-new" class="center-flex flex-column box flex-column" method="post">
 
                 <div class="flex-row spaced-between">
                     <label for="id"> N° de matrícula</label>
