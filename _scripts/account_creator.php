@@ -12,7 +12,7 @@ if (isset($_POST['send'])) {
         $statement = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, curso, turma, superuser, psswd)
             VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd)");
 
-        $is_superuser = strlen($_POST['id']) == 7;
+        $is_superuser = strlen($_POST['id']) == 7 ? 1 : 0;
 
         $statement->bindParam(':id', $_POST['id']);
         $statement->bindParam(':nome', $_POST['nome']);
