@@ -5,16 +5,20 @@
         <nav class="flex-row">
             <?php
             if (isset($_SESSION['id'])) {
-                echo  "<span class='material-symbols-rounded'>account_circle</span>";
+                echo "<span class='material-symbols-rounded'>account_circle</span>";
 
                 echo "<p>" . $_SESSION['id'] . "</p>";
+
+                echo "
+                <a href='../_scripts/sign_out.php' class='no-deco'>
+                    <span class='material-symbols-rounded'>logout</span>
+                </a>
+                ";
             } else {
                 echo "<p>você ainda não está logado</p>";
             }
             ?>
-            <a href="../_scripts/sign_out.php" class='no-deco'>
-                <span class='material-symbols-rounded'>logout</span>
-            </a>
+
         </nav>
     </div>
 </header>
