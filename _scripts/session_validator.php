@@ -14,6 +14,6 @@ if ($valid_session_id & !$valid_session | $is_sign_in & $valid_session_id) {
     header("Location: ../" . $_SESSION['directory'] . "/");
     exit;
 } else if (!$valid_session_id & !$valid_session & !$is_sign_in) {
-    header("Location: ../sign-in/");
+    header("Location: ./sign-in/");
     exit;
 }
