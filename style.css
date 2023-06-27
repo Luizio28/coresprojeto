@@ -11,10 +11,20 @@
 }
 
 html,
-body {
-    display: flex;
+body,
+header,
+footer,
+main,
+.flex-column,
+.flex-row,
+.flex-grid {
     justify-content: center;
     align-items: center;
+    display: flex;
+}
+
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -31,17 +41,11 @@ footer {
 
 header,
 footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
 }
 
 main {
     height: max-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 label,
@@ -91,12 +95,6 @@ select:hover {
     margin: 2ch;
     border: thin solid var(--p-black-01);
     background-color: var(--p-white-01);
-}
-
-.flex-column, .flex-row, .flex-grid{
-    justify-content: center;
-    align-items: center;
-    display: flex;
 }
 
 .flex-column {
