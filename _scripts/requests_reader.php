@@ -15,7 +15,11 @@ function echo_requests()
         <table id='table' class'standard-width'>
             <thead>
                 <tr>
-                    <th scope='col' onclick='sortTable(0)'>id</th>
+                    <th scope='col' onclick='sortTable(0)'>
+                        <span class='material-symbols-outlined unselectable'>
+                            unfold_more
+                        </span>
+                    </th>
                     <th scope='col' onclick='sortTable(1)'>usuario</th>
                     <th scope='col' onclick='sortTable(2)'>objeto</th>
                     <th scope='col' onclick='sortTable(3)'>inicio</th>
