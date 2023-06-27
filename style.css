@@ -60,12 +60,12 @@ tbody {
 }
 
 table {
-    margin: 2em;
+    margin: 2ch;
 }
 
 textarea {
     resize: none;
-    padding: 1em;
+    padding: 2ch;
 }
 
 input,
@@ -88,12 +88,12 @@ select:hover {
 
 .box {
     justify-content: space-between;
-    max-width: 35em;
+    max-width: 52ch;
     height: fit-content;
-    border-radius: .5em;
-    padding: 1em;
-    margin: 1em;
-    border: 1px solid var(--p-black-01);
+    border-radius: 1ch;
+    padding: 1ch;
+    margin: 1ch;
+    border: thin solid var(--p-black-01);
     background-color: var(--p-white-01);
 }
 
