@@ -14,8 +14,6 @@
                     <span class='material-symbols-rounded'>logout</span>
                 </a>
                 ";
-            } else {
-                echo "<p>você ainda não está logado</p>";
             }
             ?>
 
