@@ -1,100 +1,127 @@
 <h1>Interface Basica</h1>
-<p>Login</p>
+
+
+<h2>Login</h2>
+
+<p>Features desejadas</p>
 <ul>
   <li>ter opção de criar conta</li>
   <li>servir para discente e docente</li>
+  <li>sistema de permissão de administrador</li>
+  <li>alertar usuário caso credenciais inválidas</li>
 </ul>
 
-<p>Pagina de criação de conta de usuario</p>
+
+<h2>Pagina de criação de conta</h2>
+
+<p>Features desejadas</p>
 <ul>
-  <li>pagina pra criar apenas conta de aluno:
-    <pre>
-nome
-email institucional
-curso
-turma
-matricula
-telefone
-usuario
-senha
-    </pre>
-  </li>
+  <li>primeiro usuario adicionado ao bd tem permissão de administrador</li>
+  <li>explicar para o usuário o uso de cada informação obtida</li>
+  <li>opção de preencher email automaticamente formatado como (matricula)@ifba.edu.br</li>
+  <li>fazer verificação de emails</li>
+  <li>caixa "confirmar senha"</li>
+  <li>verificar se as senhas são inseguras através da <a href="https://haveibeenpwned.com/API/v3#PwnedPasswords">API</a></li>
+  <li>mostrar que a conta foi criada com sucesso</li>
+  <li>redirecionar o usuario para a pagina apropriada no final</li>
+</ul>
+
+<p>Dados que devem ser armazenados</p>
+<ul>
+  <li>matricula / siape</li>
+  <li>nome</li>
+  <li>email institucional</li>
+  <li>curso</li>
+  <li>turma (opcional por causa dos admins)</li>
+  <li>telefone</li>
+  <li>senha</li>
 </ul>
 
 
-<p>Pagina de usuario</p>
+<h2>Pagina de usuario</h2>
+
+<p>Features desejadas</p>
 <ul>
   <li>mostrar os requerimentos feitos pelo usuario e o status</li>
   <li>ter botão de criar novo requerimento</li>
 </ul>
 
-<p>Pagina de criar requerimento</p>
+
+<h2>Pagina de criar requerimento</h2>
+
+<p>Features desejadas</p>
 <ul>
-  <li>deve conter essas informações para preencher do lado do usuario:
-    <pre>
-objeto (justificativa ou segunda chamada)
-nome (automatico)
-email
-anexo
-observação
-    </pre></li>
-  <li>o sistema deve gerar automaticamente a data de registro, e data inicial (eu acho)</li>
+  <li>explicar para o usuário o uso de cada informação obtida</li>
+  <li>sistema para adicionar professores envolvidos nas faltas e a quantia de faltas em cada um deles</li>
+  <li>mostrar que o requerimento foi enviado com sucesso</li>
+  <li>apresentar lugar onde pdfs possam ser criados automaticamente</li>
+  <li>esclarecer ao usuário que os documentos ainda devem ser entregues à CORES</li>
 </ul>
 
-<p>Pagina de admin/coordenador/cores</p>
+<p>Dados que devem ser armazenados</p>
 <ul>
-  <li>admin: gerir usuarios e ter habilidade de criar adm</li>
-  <li>coordenador: ter um inbox contendo requerimentos e habilidade de deferir ou não</li>
-  <li>cores: ter um inbox para vizualizar os requerimentos</li>
+  <li>No. de matrícula (automatico)</li>
+  <li>objeto (justificativa ou segunda chamada)</li>
+  <li>data de inicio e final das faltas a serem justificadas</li>
+  <li>momento em que requerimento foi registrado</li>
+  <li>anexo único com todos os documentos necessários</li>
+  <li>observações/ informações extras sobre a falta</li>
 </ul>
 
-<p>Pagina de adicionar admin/coordenador/cores</p>
+
+<h2>Pagina de admin</h2>
+
+<p>Features desejadas</p>
 <ul>
-  <li>disponivel ao admin no inicio, adicionar usuarios usando informações deles:
-  <pre>
-nome
-siape
-email
-coordenação
-usuario
-senha
-  </pre>
-  </li>
+  <li>mostrar tabela com todos os requerimentos pendentes</li>
+  <li>possibilidade de dar permissão de administrador à usuários</li>
+  <li>filtrar requerimentos por: status, curso, decrescente e crescente</li>
+  <li>tabela contendo todos os usuarios resgistrados no bd</li>
+  <li>links de download de anexos na tabela de requerimentos</li>
+  <li>links de para as informações dos registrados nos requerimentos</li>
+  <li>habilidade de alterar status de requerimento</li>
+  <li>forma de pesquisar os requerimentos e os usuários</li>
 </ul>
 
-<p>Gestao de requerimento</p>
+
+<h2>Frontend</h2>
+
+<p>Filosofia do projeto</p>
 <ul>
-  <li>disponivel ao coordenador e cores, accessado pelo inbox a interface para ler o deferimento por completo e gerir ele</li>
+  <li>menos é mais</li>
+  <li>modularidade é importante</li>
+  <li>deixar explícito se ações do usuário estão dando efeito (por exemplo, deixar claro quando um requerimento foi enviado com sucesso)</li>
 </ul>
 
-<h1>Frontend</h1>
+<p>Features desejadas</p>
 <ul>
-  <li>fazer que a table em /administrador/ possa ser organizada de forma decrescente, crescente e etc</li>
-  <li>deixar explícito quando o usuário está logado</li>
-  <li>deixar explícito quando um requerimento foi enviado ou não</li>
+  <li>opção de tema escuro (?)</li>
+  <li>seguir branding de ifba</li>
 </ul>
 
-<h1>Backend</h1>
+<h2>Backend</h2>
+
+<p>Filosofia do projeto</p>
 <ul>
-  <li>comunicação entre cliente e banco ...</li>
-  <li>consertar requests_writer.php, ele não tá enviando as observações e o id do usuário</li>
+  <li>deixar o código o mais legível possível</li>
+  <li>Seguir DRY</li>
+  <li>deixar o código o mais legível possível</li>
+  <li>Quando avistar um erro, corriga todas as intâncias desse erro pelo código todo</li>
+  <li>deixar o código o mais legível possível</li>
+  <li>no caso de um código eventualmente <i>inspirado</i> mostrar fonte da inpiração</li>
+</ul>
+
+<p>Features desejadas</p>
+<ul>
+  <li>enviar email aos usuários e docentes envolvidos em determinado requerimento</li>
   <li>impedir usuários e administradores de acessar as páginas /usuario/ e /administrador/ caso eles não estejam logados através do uso de tokens de sessão</li>
-  <li>Criar sistema de verificação de email</li>
-  <li>Criar sistema de permissão de adminsitrador mais seguro, atualmente qualquer conta com um username de 7 caracteres tem permissão de administrador</li>
-  <li>Criar sistema de alteção de situação de requerimentos pela tela /administrador/</li>
-  <li>Seguir DRY e KISS</li>
 </ul>
 
-<h1>Estilização</h1>
+
+<h2>Roadmap</h2>
+
 <ul>
-  <li>seguir esquema de cores 60-30-10</li>
-  <li>usar formato familiar com inbox de email</li>
-  <li>deixar css modular (sem um styles.css gigante por favor)</li>
+  <li>versao 0.x - estruturar funções de comunicação com o banco</li>
+  <li>versao 1.0 - banco de dados e funções basicas estruturadas junto com a interface</li>
+  <li>versao 2.0 - css e interface completa</li>
 </ul>
-
-<h1>Roadmap</h1>
-<pre>
-versao 0.x - estruturar funções de comunicação com o banco
-versao 1.0 - banco de dados e funções basicas estruturadas junto com a interface
-versao 2.0 - css e interface completa
-</pre>
