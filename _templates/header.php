@@ -12,6 +12,9 @@
                 echo "<p>você ainda não está logado</p>";
             }
             ?>
+            <a href="../_scripts/sign_out.php" class='no-deco'>
+                <span class='material-symbols-rounded'>logout</span>
+            </a>
         </nav>
     </div>
 </header>
