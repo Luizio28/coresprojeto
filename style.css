@@ -13,21 +13,15 @@
 html,
 body {
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     margin: 0;
     padding: 0;
-
     height: 100%;
     width: 100%;
-
     flex-direction: column;
     justify-content: space-between;
-
     background-color: var(--p-white-01);
-
     color: var(--p-black-01);
 }
 
@@ -40,14 +34,12 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     width: 100%;
 }
 
 main {
     height: max-content;
     display: flex;
-
     justify-content: center;
     align-items: center;
 }
@@ -69,7 +61,6 @@ tbody {
 
 table {
     margin: 2em;
-    max-width: 70em;
 }
 
 textarea {
@@ -80,18 +71,14 @@ textarea {
 input,
 select {
     background-color: var(--p-white-02);
-
     border: thin solid var(--p-black-04);
     border-radius: .5em;
-
     padding: 1ch;
 }
-
 
 input[type="submit"] {
     width: fit-content;
 }
-
 
 input:hover,
 select:hover {
@@ -106,20 +93,14 @@ select:hover {
 .box {
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: space-between;
-
     max-width: 35em;
-
     height: fit-content;
-
     border-radius: .5em;
     padding: 1em;
     margin: 1em;
-
     border: 1px solid var(--p-black-01);
-
     background-color: var(--p-white-01);
 }
 
@@ -130,7 +111,6 @@ select:hover {
 .flex-column {
     display: flex;
     flex-direction: column;
-
     align-items: center;
     flex-direction: column;
 }
@@ -138,7 +118,6 @@ select:hover {
 .flex-row {
     display: flex;
     flex-direction: column;
-
     align-items: center;
     flex-direction: row;
 }
@@ -159,6 +138,17 @@ select:hover {
 
 .no-deco {
     text-decoration: none;
+    color: var(--p-black-01);
+}
+
+.unselectable {
+    /* https://stackoverflow.com/questions/2310734/how-to-make-html-text-unselectable */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .inline {
@@ -168,9 +158,7 @@ select:hover {
 
 #add {
     font-size: 5em;
-
     color: var(--p-white-01);
-
     background-color: transparent;
     border: 0;
 }
