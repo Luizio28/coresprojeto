@@ -23,6 +23,10 @@ function head_constructor($title, $su = false)
         exit;
     }
 
+    //add if usefull
+
+    //<link rel='preload' href='../node_modules/material-symbols/material-symbols-rounded.woff2' as='font' type='font/woff2' crossorigin>
+
     echo "
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
