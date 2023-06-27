@@ -76,10 +76,6 @@ select {
     padding: 1ch;
 }
 
-input[type="submit"] {
-    width: fit-content;
-}
-
 input:hover,
 select:hover {
     background-color: var(--p-white-03);
@@ -99,10 +95,6 @@ select:hover {
     margin: 1em;
     border: 1px solid var(--p-black-01);
     background-color: var(--p-white-01);
-}
-
-.mono {
-    font: 1em "mono";
 }
 
 .flex-column, .flex-row, .flex-grid{
