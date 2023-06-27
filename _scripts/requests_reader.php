@@ -1,6 +1,23 @@
-<?php
-function echo_requests()
-{
+<table id='table'>
+    <thead>
+        <tr>
+            <th scope='col' onclick='sortTable(0)'>
+                <span class='material-symbols-outlined unselectable'>
+                    unfold_more
+                </span>
+            </th>
+            <th scope='col' onclick='sortTable(1)'>usuario</th>
+            <th scope='col' onclick='sortTable(2)'>objeto</th>
+            <th scope='col' onclick='sortTable(3)'>inicio</th>
+            <th scope='col' onclick='sortTable(4)'>termino</th>
+            <th scope='col' onclick='sortTable(5)'>registro</th>
+            <th scope='col' onclick='sortTable(6)'>anexo</th>
+            <th scope='col' onclick='sortTable(7)'>observação</th>
+            <th scope='col' onclick='sortTable(8)'>situação</th>
+        </tr>
+    </thead>
+
+    <?php
     include "../_scripts/sql_db_connector.php";
 
     try {
@@ -10,27 +27,6 @@ function echo_requests()
         $statement->execute();
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        echo "
-        <table id='table'>
-            <thead>
-                <tr>
-                    <th scope='col' onclick='sortTable(0)'>
-                        <span class='material-symbols-outlined unselectable'>
-                            unfold_more
-                        </span>
-                    </th>
-                    <th scope='col' onclick='sortTable(1)'>usuario</th>
-                    <th scope='col' onclick='sortTable(2)'>objeto</th>
-                    <th scope='col' onclick='sortTable(3)'>inicio</th>
-                    <th scope='col' onclick='sortTable(4)'>termino</th>
-                    <th scope='col' onclick='sortTable(5)'>registro</th>
-                    <th scope='col' onclick='sortTable(6)'>anexo</th>
-                    <th scope='col' onclick='sortTable(7)'>observação</th>
-                    <th scope='col' onclick='sortTable(8)'>situação</th>
-                </tr>
-            </thead>
-        ";
 
         foreach ($result as $row) {
             $object = "";
@@ -73,14 +69,12 @@ function echo_requests()
             </tr>
             ";
         }
-        echo "
-        </table>
-        ";
     } catch (PDOException $exception) {
         handle_pdo_exception($exception);
     }
-}
-?>
+
+    ?>
+</table>
 
 <script>
     //Código descaradamente """"inpirado"""" nesse aqui ó
