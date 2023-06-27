@@ -82,10 +82,6 @@ select:hover {
     border-color: var(--p-black-03);
 }
 
-.standard-width {
-    max-width: 70em;
-}
-
 .box {
     justify-content: space-between;
     max-width: 52ch;

@@ -12,7 +12,7 @@ function echo_requests()
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         echo "
-        <table id='table' class'standard-width'>
+        <table id='table'>
             <thead>
                 <tr>
                     <th scope='col' onclick='sortTable(0)'>
