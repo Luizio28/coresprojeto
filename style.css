@@ -1,9 +1,4 @@
 :root {
-    --p-01: hsl(115, 97%, 35%);
-    --p-02: hsl(115, 76%, 40%);
-    --p-03: hsl(115, 69%, 68%);
-    --p-04: hsl(115, 59%, 89%);
-
     --p-white-01: hsl(0, 0%, 96%);
     --p-white-02: hsl(0, 0%, 92%);
     --p-white-03: hsl(0, 0%, 88%);
@@ -13,11 +8,6 @@
     --p-black-02: hsl(251, 13%, 24%);
     --p-black-03: hsl(273, 12%, 31%);
     --p-black-04: hsl(296, 8%, 40%);
-}
-
-@font-face {
-    font-family: mono;
-    src: url(../_fonts/Ubuntu-C.ttf);
 }
 
 html,
@@ -42,9 +32,6 @@ body {
 }
 
 footer {
-    /* position: sticky;
-    bottom: 0; */
-
     padding: 1em 0em 1em 0em;
 }
 
@@ -87,12 +74,19 @@ table {
     max-width: 70em;
 }
 
+textarea {
+    resize: none;
+    padding: 1em;
+}
+
 input,
 select {
     background-color: var(--p-white-02);
 
     border: thin solid var(--p-black-04);
     border-radius: .5em;
+
+    padding: 1ch;
 }
 
 
@@ -108,7 +102,7 @@ select:hover {
 }
 
 .standard-width {
-    width: 50ch;
+    max-width: 70em;
 }
 
 .box {
@@ -118,7 +112,7 @@ select:hover {
     align-items: center;
     justify-content: space-between;
 
-    max-width: 50ch;
+    max-width: 35em;
 
     height: fit-content;
 
@@ -133,13 +127,6 @@ select:hover {
 
 .mono {
     font: 1em "mono";
-}
-
-.center-abs {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .flex-column {

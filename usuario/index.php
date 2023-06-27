@@ -64,10 +64,10 @@
 
                 <div class="spaced-between box">
                     <b>
-                        Anexo
+                        Anexo Único
                     </b>
 
-                    <label for="anexo" class="inline">
+                    <label for="anexo">
                         &emsp; Anexo único de arquivo pdf contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais.
                     </label>
 
@@ -86,7 +86,7 @@
                     <label for="obs">
                         Infomações extras sobre o motivo da falta, caso seja necessário.
                     </label>
-                    <textarea name="obs" id="obs" cols="50" rows="10" maxlength="255" value="Nda" required></textarea>
+                    <textarea name="obs" id="obs" cols="46" rows="10" maxlength="255" value="Nda" required></textarea>
                 </div>
 
                 <div>
