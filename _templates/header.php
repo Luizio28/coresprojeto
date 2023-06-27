@@ -13,7 +13,8 @@
                 "<a href='../_scripts/sign_out.php' class='no-deco unselectable'>
                     <span class='material-symbols-rounded'>logout</span>
                 </a>
-            </nav>";
+            </nav>
+            ";
         }
         ?>
     </div>
