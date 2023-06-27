@@ -26,7 +26,7 @@ body {
 }
 
 footer {
-    padding: 1em 0em 1em 0em;
+    padding: 2ch 0 2ch 0;
 }
 
 header,
@@ -48,7 +48,7 @@ label,
 input,
 p,
 a {
-    margin: 1em;
+    margin: 2ch;
 }
 
 th,
@@ -56,7 +56,7 @@ td,
 thead,
 tbody {
     border: thin solid var(--p-black-04);
-    padding: 1em;
+    padding: 2ch;
 }
 
 table {
@@ -72,7 +72,7 @@ input,
 select {
     background-color: var(--p-white-02);
     border: thin solid var(--p-black-04);
-    border-radius: .5em;
+    border-radius: 1ch;
     padding: 1ch;
 }
 
@@ -87,8 +87,8 @@ select:hover {
     max-width: 52ch;
     height: fit-content;
     border-radius: 1ch;
-    padding: 1ch;
-    margin: 1ch;
+    padding: 2ch;
+    margin: 2ch;
     border: thin solid var(--p-black-01);
     background-color: var(--p-white-01);
 }
