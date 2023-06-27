@@ -18,7 +18,7 @@ if (isset($_POST['send'])) {
         $statement->bindParam(':termino', $_POST['termino']);
         $statement->bindParam(':anexo', $_POST['anexo']);
         $statement->bindParam(':obs', $_POST['obs']);
-        $statement->bindParam(':usuario_id', $_COOKIE['id']);
+        $statement->bindParam(':usuario_id', $_SESSION['id']);
 
         $statement->execute();
     } catch (PDOException $exception) {
