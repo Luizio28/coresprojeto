@@ -116,6 +116,7 @@
 <ul>
   <li>enviar email aos usuários e docentes envolvidos em determinado requerimento</li>
   <li>impedir usuários e administradores de acessar as páginas /usuario/ e /administrador/ caso eles não estejam logados através do uso de tokens de sessão</li>
+  <li>sempre redirecionar páginas para local adequado, nunca dar o 404 quando uma página não existir para evitar que o usuário tente descobrir o nome de páginas que ele não pode acessar</li>
 </ul>
 
 
