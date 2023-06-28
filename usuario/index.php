@@ -22,14 +22,10 @@
         <div class="flex-column">
             <h1>Novo requerimento</h1>
 
-            <form id="create-new" class="center-flex flex-column" method="post">
-                <div class="spaced-between box flex-column">
-                    <b>
-                        Objeto do requerimento
-                    </b>
-
-                    <label for="objeto">
-                        O tipo de requerimento que está sendo feito
+            <form id="create-new" class="center-flex flex-column box" method="post">
+                <div class="spaced-between flex-row">
+                    <label for="objeto" title="O tipo de requerimento que está sendo feito">
+                        Motivo
                     </label>
 
                     <select name="objeto" id="objeto">
@@ -38,59 +34,40 @@
                     </select>
                 </div>
 
-                <div class="spaced-between box flex-column">
-                    <b>
+                <div class="spaced-between flex-row">
+                    <label for="inicio" title="Data em que faltas a serem justificadas começam">
                         Data inicial
-                    </b>
-
-                    <label for="inicio">
-                        Data em que faltas a serem justificadas começam
                     </label>
 
                     <input type="date" name="inicio" id="inicio" required>
                 </div>
 
-                <div class="spaced-between box flex-column">
-                    <b>
+                <div class="spaced-between flex-row">
+                    <label for="termino" title="O último dia em que houve faltas">
                         Data final
-                    </b>
-
-                    <label for="termino">
-                        O último dia em que houve faltas
                     </label>
 
                     <input type="date" name="termino" id="termino" required>
                 </div>
 
-                <div class="spaced-between box flex-column">
-                    <b>
-                        Anexo Único
-                    </b>
-
-                    <label for="anexo">
-                        &emsp; Anexo único de arquivo pdf contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais.
+                <div class="spaced-between flex-column">
+                    <label for="obs" title="Infomações extras sobre o motivo da falta, caso seja necessário.">
+                        Observações extras
                     </label>
-
-                    <div class="flex-row">
-                        <a class="inline" href="https://www.ilovepdf.com/jpg_to_pdf">site para criar pdf</a>
-
-                        <input type="file" name="anexo" id="anexo" accept=".pdf" required>
-                    </div>
+                    <textarea name="obs" id="obs" cols="30" rows="10" maxlength="255" placeholder="Estava me recuperando de uma cirurgia" required></textarea>
                 </div>
 
-                <div class="spaced-between box flex-column">
-                    <b>
-                        Observações
-                    </b>
-
-                    <label for="obs">
-                        Infomações extras sobre o motivo da falta, caso seja necessário.
+                <div class="spaced-between flex-column">
+                    <label for="anexo" title="Anexo único de arquivo pdf contendo todos os documentos necessários para o requerimento, por exemplo, um atestado médico para justificar faltas. Ps: Os documentos fotografados ainda devem ser levados para a CORES por motivos legais.">
+                        Anexo único
                     </label>
-                    <textarea name="obs" id="obs" cols="46" rows="10" maxlength="255" value="Nda" required></textarea>
+
+                    <input type="file" name="anexo" id="anexo" accept=".pdf" required>
                 </div>
 
                 <div>
                     <input type="submit" name="send" id="send" value="criar">
+                    <input type="reset" value="reset">
                 </div>
             </form>
 
