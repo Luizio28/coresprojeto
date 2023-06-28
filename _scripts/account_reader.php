@@ -29,6 +29,15 @@ if (isset($_POST['id']) & isset($_POST['psswd'])) {
                 exit;
             }
         }
+        echo "
+        <div class='flex-column'>
+            <h1>ERRO</h1>
+            
+            <div class='box flex-column'>
+                <p>Credenciais inválidas</p>
+            </div>
+        </div>
+        ";
     } catch (PDOException $exception) {
         handle_pdo_exception($exception);
     }
