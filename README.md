@@ -5,10 +5,10 @@
 
 <p>Features desejadas</p>
 <ul>
-  <li>ter opção de criar conta</li>
-  <li>servir para discente e docente</li>
+  <li>ter opção de criar conta (feito)</li>
+  <li>servir para discente e administrador (feito)</li>
   <li>sistema de permissão de administrador</li>
-  <li>alertar usuário caso credenciais inválidas</li>
+  <li>alertar usuário caso credenciais inválidas (feito)</li>
 </ul>
 
 
@@ -23,10 +23,10 @@
   <li>caixa "confirmar senha"</li>
   <li>verificar se as senhas são inseguras através da <a href="https://haveibeenpwned.com/API/v3#PwnedPasswords">API</a></li>
   <li>mostrar que a conta foi criada com sucesso</li>
-  <li>redirecionar o usuario para a pagina apropriada no final</li>
+  <li>redirecionar o usuario para a pagina apropriada no final (feito)</li>
 </ul>
 
-<p>Dados que devem ser armazenados</p>
+<p>Dados que devem ser armazenados (feito)</p>
 <ul>
   <li>matricula / siape</li>
   <li>nome</li>
@@ -51,14 +51,14 @@
 
 <p>Features desejadas</p>
 <ul>
-  <li>explicar para o usuário o uso de cada informação obtida</li>
+  <li>explicar para o usuário o uso de cada informação obtida (feito com tooltip)</li>
   <li>sistema para adicionar professores envolvidos nas faltas e a quantia de faltas em cada um deles</li>
   <li>mostrar que o requerimento foi enviado com sucesso</li>
-  <li>apresentar lugar onde pdfs possam ser criados automaticamente</li>
-  <li>esclarecer ao usuário que os documentos ainda devem ser entregues à CORES</li>
+  <li>apresentar lugar onde pdfs possam ser criados automaticamente (deprecado)</li>
+  <li>esclarecer ao usuário que os documentos ainda devem ser entregues à CORES (feito com tooltip)</li>
 </ul>
 
-<p>Dados que devem ser armazenados</p>
+<p>Dados que devem ser armazenados (feito)</p>
 <ul>
   <li>No. de matrícula (automatico)</li>
   <li>objeto (justificativa ou segunda chamada)</li>
@@ -115,7 +115,7 @@
 <p>Features desejadas</p>
 <ul>
   <li>enviar email aos usuários e docentes envolvidos em determinado requerimento</li>
-  <li>impedir usuários e administradores de acessar as páginas /usuario/ e /administrador/ caso eles não estejam logados através do uso de tokens de sessão</li>
+  <li>impedir usuários e administradores de acessar as páginas /usuario/ e /administrador/ caso eles não estejam logados através do uso de tokens de sessão (feito)</li>
   <li>sempre redirecionar páginas para local adequado, nunca dar o 404 quando uma página não existir para evitar que o usuário tente descobrir o nome de páginas que ele não pode acessar</li>
 </ul>
 
