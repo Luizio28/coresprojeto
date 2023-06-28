@@ -25,7 +25,7 @@
             <form method="post" class="box flex-column">
                 <div class="flex-row spaced-between">
                     <label for="id">
-                        N° de matrícula
+                        Matrícula
                     </label>
                     <input maxlength="12" type="text" name="id" id="id" required>
                 </div>
