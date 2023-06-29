@@ -16,7 +16,7 @@
 
 <p>Features desejadas</p>
 <ul>
-  <li>primeiro usuario adicionado ao bd tem permissão de administrador</li>
+  <li>primeiro usuario adicionado ao bd tem permissão de administrador (feito)</li>
   <li>explicar para o usuário o uso de cada informação obtida</li>
   <li>opção de preencher email automaticamente formatado como (matricula)@ifba.edu.br</li>
   <li>fazer verificação de emails</li>

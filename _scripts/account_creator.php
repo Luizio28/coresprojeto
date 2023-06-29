@@ -9,10 +9,15 @@ if (isset($_POST['send'])) {
 
         $hashed_password = password_hash($_POST['psswd'], PASSWORD_DEFAULT);
 
+        $statement =  $pdo->prepare("SELECT COUNT(*) as count FROM usuario");
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $is_superuser = $result[0]['count'] == 0 ? 1 : 0;
+
         $statement = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, curso, turma, superuser, psswd)
             VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd)");
 
-        $is_superuser = strlen($_POST['id']) == 7 ? 1 : 0;
 
         $statement->bindParam(':id', $_POST['id']);
         $statement->bindParam(':nome', $_POST['nome']);
