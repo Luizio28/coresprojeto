@@ -20,19 +20,9 @@
 
     <main>
         <div class="flex-column">
-            <h1>Página de admin</h1>
-            <div class="flex-row">
-                <a href="../lista-requerimento/" class="no-deco">
-                    <div class="box">
-                        lista de requerimentos
-                    </div>
-                </a>
-                <a href="../lista-usuario/" class="no-deco">
-                    <div class="box">
-                        Usuários cadastrados
-                    </div>
-                </a>
-            </div>
+            <h1>Requerimentos</h1>
+
+            <?php include "../_scripts/requests_reader.php"; ?>
         </div>
     </main>
 
