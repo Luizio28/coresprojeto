@@ -72,7 +72,7 @@
             ";
             }
         } else {
-            echo "<p>Nemhum requerimento encontrado</p>";
+            echo "<p>Nenhum requerimento encontrado</p>";
         }
     } catch (PDOException $exception) {
         handle_pdo_exception($exception);
