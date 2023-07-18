@@ -27,6 +27,7 @@
                         <th scope='col' onclick='sortTable(6)'>anexo</th>
                         <th scope='col' onclick='sortTable(7)'>observação</th>
                         <th scope='col' onclick='sortTable(8)'>situação</th>
+						<th scope='col' onclick='sortTable(9)'>ações</th>
                     </tr>
                 </thead>
                 ";
@@ -69,6 +70,7 @@
                 <td class='break-text'>" . $row['anexo'] . "</td>
                 <td class='break-text'>" . $row['obs'] . "</td>
                 <td>" . $situation . "</td>
+                <td><a href=>...</a></td>
             </tr>
             ";
             }
