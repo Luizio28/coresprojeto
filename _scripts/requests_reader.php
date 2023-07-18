@@ -19,13 +19,13 @@
                             unfold_more
                             </span>
                         </th>
-                        <th scope='col' onclick='sortTable(1)'>usuario</th>
-                        <th scope='col' onclick='sortTable(2)'>objeto</th>
-                        <th scope='col' onclick='sortTable(3)'>inicio</th>
-                        <th scope='col' onclick='sortTable(4)'>termino</th>
-                        <th scope='col' onclick='sortTable(5)'>registro</th>
-                        <th scope='col' onclick='sortTable(6)'>anexo</th>
-                        <th scope='col' onclick='sortTable(7)'>observação</th>
+                        <th scope='col' onclick='sortTable(1)'>objeto</th>
+                        <th scope='col' onclick='sortTable(2)'>usuario</th>
+                        <th scope='col' onclick='sortTable(3)'>registro</th>
+                        <th scope='col' onclick='sortTable(4)'>inicio</th>
+                        <th scope='col' onclick='sortTable(5)'>termino</th>
+                        <th scope='col' onclick='sortTable(6)'>observação</th>
+                        <th scope='col' onclick='sortTable(7)'>anexo</th>
                         <th scope='col' onclick='sortTable(8)'>situação</th>
                     </tr>
                 </thead>
@@ -61,16 +61,17 @@
                 echo "
             <tr>
                 <td>" . $row['id'] . "</td>
-                <td>" . $row['usuario_id'] . "</td>
                 <td>" . $object . "</td>
+                <td>" . $row['usuario_id'] . "</td>
+                <td>" . $row['registro'] . "</td>
                 <td>" . $row['inicio'] . "</td>
                 <td>" . $row['termino'] . "</td>
-                <td>" . $row['registro'] . "</td>
-                <td class='break-text'>" . $row['anexo'] . "</td>
                 <td class='break-text'>" . $row['obs'] . "</td>
+                <td class='break-text'><a href=" . $row['diretorio_anexo'] . ">link</a></td>
                 <td>" . $situation . "</td>
             </tr>
             ";
+
             }
         } else {
             echo "<p>Não há requerimentos registrados no banco de dados</p>";

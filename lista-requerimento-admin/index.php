@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <?php
@@ -23,6 +23,8 @@
             <h1>Requerimentos</h1>
 
             <?php include "../_scripts/requests_reader.php"; ?>
+
+            <a href="../administrador">voltar</a>
         </div>
     </main>
 

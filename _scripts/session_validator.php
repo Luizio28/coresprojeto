@@ -1,5 +1,18 @@
 <?php
-//If possible make this less of a mess
+/*
+$is_signed_in = isset($_SESSION['id']);
+$is_superuser = ($superuser_only && $_SESSION['superuser'] == true);
+
+$valid_session = ($is_signed_in && ($is_superuser || !$superuser_only));
+
+if ($valid_session) {
+    header("Location: ../" . $_SESSION['directory'] . "/");
+    exit;
+} else if (!$is_signed_in) {
+    header("Location: ./sign-in/");
+    exit;
+}
+*/
 
 $valid_session_id = isset($_SESSION['id']);
 

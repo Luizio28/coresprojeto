@@ -141,3 +141,16 @@ select:hover {
     -ms-user-select: none;
     user-select: none;
 }
+
+.tooltip {
+	position:absolute;
+	background-color:black;
+	visibility:hidden;
+	padding:0.5em;
+	border-radius:10px;
+	color:white;
+}
+
+#anexo:hover + #tp0{
+	visibility:visible;
+}
