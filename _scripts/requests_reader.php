@@ -57,7 +57,7 @@
                         $situation = "Concluído";
                         break;
                 }
-
+		    
                 echo "
             <tr>
                 <td>" . $row['id'] . "</td>
