@@ -59,20 +59,21 @@
                         break;
                 }
 
+		$file_dir ="../anexo/".$row['id']."_".$row['usuario_id']."_". $row['registro'].".pdf";
+		    
                 echo "
             <tr>
                 <td>" . $row['id'] . "</td>
-                <td>" . $row['usuario_id'] . "</td>
                 <td>" . $object . "</td>
                 <td>" . $row['inicio'] . "</td>
                 <td>" . $row['termino'] . "</td>
                 <td>" . $row['registro'] . "</td>
-                <td class='break-text'>" . $row['anexo'] . "</td>
+                <td class='break-text'><a href=".$file_dir.">link</a></td>
                 <td class='break-text'>" . $row['obs'] . "</td>
                 <td>" . $situation . "</td>
-                <td><a href=>...</a></td>
             </tr>
             ";
+
             }
         } else {
             echo "<p>Não há requerimentos registrados no banco de dados</p>";
