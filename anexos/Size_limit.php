@@ -1,7 +1,7 @@
 <?php
 if(isset($_FILES['uploaded_file'])) {
     $errors     = array();
-    $maxsize    = 2097152;
+    $maxsize    = 4194304;
     $acceptable = array(
         'application/pdf');
 
