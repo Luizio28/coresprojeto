@@ -41,7 +41,7 @@
                 <td>" . $row['fone'] . "</td>
                 <td>" . $row['curso'] . "</td>
                 <td>" . $row['turma'] . "</td>
-                <td class='break-text'>" . $row['admin'] . "</td>
+                <td class='break-text'>" . $row['superuser'] . "</td>
             </tr>
             ";
         }
