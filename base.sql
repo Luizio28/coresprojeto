@@ -18,7 +18,6 @@ CREATE TABLE requerimento (
     inicio DATE NOT NULL,
     termino DATE NOT NULL,
     registro DATETIME DEFAULT CURRENT_TIMESTAMP,
-    anexo LONGBLOB NOT NULL,
     obs CHAR(255),
     situacao TINYINT DEFAULT 0,
     usuario_id BIGINT NOT NULL,
