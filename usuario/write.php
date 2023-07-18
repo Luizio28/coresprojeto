@@ -22,7 +22,7 @@
         <div class="flex-column">
             <h1>Novo requerimento</h1>
 
-            <form id="create-new" class="center-flex flex-column box" method="post">
+            <form enctype="multpart/form-data" id="create-new" class="center-flex flex-column box" method="post">
                 <div class="spaced-between flex-row">
                     <label for="objeto" title="O tipo de requerimento que está sendo feito">
                         Motivo
