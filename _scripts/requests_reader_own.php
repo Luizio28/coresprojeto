@@ -5,7 +5,6 @@
     try {
         $pdo = connect_with_pdo();
 		
-		echo $_SESSION['id'];
         $statement = $pdo->prepare("SELECT * FROM requerimento WHERE usuario_id = ".$_SESSION['id']."");
         $statement->execute();
 
