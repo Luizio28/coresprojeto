@@ -57,6 +57,8 @@
                         break;
                 }
 
+		$file_dir ="../anexo/".$row['id']."_".$_SESSION['id']."_". $row['registro'].".pdf";
+		    
                 echo "
             <tr>
                 <td>" . $row['id'] . "</td>
@@ -64,7 +66,7 @@
                 <td>" . $row['inicio'] . "</td>
                 <td>" . $row['termino'] . "</td>
                 <td>" . $row['registro'] . "</td>
-                <td class='break-text'>" . $row['anexo'] . "</td>
+                <td class='break-text'><a href=".$file_dir.">link</a></td>
                 <td class='break-text'>" . $row['obs'] . "</td>
                 <td>" . $situation . "</td>
             </tr>
