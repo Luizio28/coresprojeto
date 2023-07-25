@@ -65,7 +65,7 @@
                 <td>" . $row['inicio'] . "</td>
                 <td>" . $row['termino'] . "</td>
                 <td class='break-text'>" . $row['obs'] . "</td>
-                <td class='break-text'><a href=" . $row['diretorio_anexo'] . ">link</a></td>
+                <td class='break-text'><a href=" . $row['anexo'] . ">link</a></td>
                 <td>" . $situation . "</td>
             </tr>
             ";
