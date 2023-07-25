@@ -9,7 +9,10 @@
     head_constructor("Lista de requerimentos");
     ?>
 
-    <meta name="description" content="Essa é a página que os usuários revisam os requerimentos enviados para a CORES do IFBA Campus Eunápolis">
+    <script src="../_js/table_sort.js"></script>
+
+    <meta name="description"
+        content="Essa é a página que os usuários revisam os requerimentos enviados para a CORES do IFBA Campus Eunápolis">
 </head>
 
 
@@ -24,7 +27,7 @@
 
             <?php include "../_scripts/requests_reader_own.php"; ?>
 
-			<a href="../usuario">voltar</a>
+            <a href="../usuario">voltar</a>
         </div>
     </main>
 

@@ -9,6 +9,8 @@
     head_constructor("Lista de requerimentos", true);
     ?>
 
+    <script src="../_js/table_sort.js"></script>
+
     <meta name="description" content="Essa é a página que os admins manejam os usuarios de nossos serviços">
 </head>
 

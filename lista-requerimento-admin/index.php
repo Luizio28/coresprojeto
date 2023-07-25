@@ -9,7 +9,10 @@
     head_constructor("Lista de requerimentos", true);
     ?>
 
-    <meta name="description" content="Essa é a página que os admins manejam os requerimentos enviados para a CORES do IFBA Campus Eunápolis">
+    <script src="../_js/table_sort.js"></script>
+
+    <meta name="description"
+        content="Essa é a página que os admins manejam os requerimentos enviados para a CORES do IFBA Campus Eunápolis">
 </head>
 
 
