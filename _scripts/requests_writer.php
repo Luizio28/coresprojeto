@@ -45,6 +45,14 @@ if (isset($_POST['send'])) {
                 $destination = "../anexo/" . $filename;
 
                 move_uploaded_file($_FILES['anexo']['tmp_name'], $destination);
+
+                $statement = $pdo->prepare("UPDATE requerimento SET diretorio_anexo = :diretorio_anexo WHERE id = :id");
+                $statement->bindParam(':diretorio_anexo', $destination);
+                $statement->bindParam(':id', $result[0]['id']);
+                $statement->execute();
+
+                header("Location: ../lista-requerimento-usuario/");
+                exit;
             } else {
                 foreach ($errors as $error) {
                     echo '<script>alert("' . $error . '");</script>';
@@ -53,11 +61,6 @@ if (isset($_POST['send'])) {
                 die();
             }
         }
-
-        $statement = $pdo->prepare("UPDATE requerimento SET diretorio_anexo = :diretorio_anexo WHERE id = :id");
-        $statement->bindParam(':diretorio_anexo', $destination);
-        $statement->bindParam(':id', $result[0]['id']);
-        $statement->execute();
     } catch (PDOException $exception) {
         handle_pdo_exception($exception);
     }
