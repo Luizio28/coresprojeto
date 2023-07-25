@@ -107,7 +107,7 @@
   <li>deixar o código o mais legível possível</li>
   <li>Seguir DRY</li>
   <li>deixar o código o mais legível possível</li>
-  <li>Quando avistar um erro, corriga todas as intâncias desse erro pelo código todo</li>
+  <li>Quando avistar um erro, corriga todas as instâncias desse erro pelo código todo</li>
   <li>deixar o código o mais legível possível</li>
   <li>no caso de um código eventualmente <i>inspirado</i> mostrar fonte da <i>inspiração</i>. Isso inclui quando se pega código do Gabriel Pereira Torres</li>
 </ul>
