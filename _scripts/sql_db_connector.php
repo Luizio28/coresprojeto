@@ -2,7 +2,7 @@
 function get_database_config()
 {
     $server_host = $_SERVER['HTTP_HOST'];
-    $is_local = ($server_host == 'localhost' || $server_host == '::1');
+    $is_local = ($server_host == 'localhost:8000' || $server_host == '::1');
 
     return $is_local ?
         [

@@ -25,14 +25,35 @@ if (isset($_POST['send'])) {
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $temp = explode(".", $_FILES['anexo']['name']);
-        $filename = $result[0]['id'] . "_" . $_SESSION['id'] . "_" . $result[0]['registro'] . '.' . end($temp);
-        $filename = preg_replace("/[^a-zA-Z0-9_.]/", "_", $filename);
-        $destination = "../anexo/" . $filename;
+        if (isset($_FILES['anexo'])) {
+            $errors     = array();
+            $maxsize    = 4194304; //4 mb
+            $acceptable = array('application/pdf');
 
-        move_uploaded_file($_FILES['anexo']['tmp_name'], $destination);
+            if (($_FILES['anexo']['size'] >= $maxsize) || ($_FILES["anexo"]["size"] == 0)) {
+                $errors[] = 'Arquivo muito grande, o limite é 4 MB.';
+            }
 
-        // Update the 'diretorio_anexo' value with the newly calculated $destination
+            if ((!in_array($_FILES['anexo']['type'], $acceptable)) && (!empty($_FILES["anexo"]["type"]))) {
+                $errors[] = 'Arquivo invalido, o único tipo de arquivo que aceitamos é PDF.';
+            }
+
+            if (count($errors) === 0) {
+                $temp = explode(".", $_FILES['anexo']['name']);
+                $filename = $result[0]['id'] . "_" . $_SESSION['id'] . "_" . $result[0]['registro'] . '.' . end($temp);
+                $filename = preg_replace("/[^a-zA-Z0-9_.]/", "_", $filename);
+                $destination = "../anexo/" . $filename;
+
+                move_uploaded_file($_FILES['anexo']['tmp_name'], $destination);
+            } else {
+                foreach ($errors as $error) {
+                    echo '<script>alert("' . $error . '");</script>';
+                }
+
+                die();
+            }
+        }
+
         $statement = $pdo->prepare("UPDATE requerimento SET diretorio_anexo = :diretorio_anexo WHERE id = :id");
         $statement->bindParam(':diretorio_anexo', $destination);
         $statement->bindParam(':id', $result[0]['id']);
