@@ -2,7 +2,7 @@ CREATE DATABASE requerimentos;
 USE requerimentos;
 
 CREATE TABLE usuario (
-    id BIGINT PRIMARY KEY,
+    id CHAR(12) PRIMARY KEY,
     nome CHAR(255) NOT NULL,
     email CHAR(255) NOT NULL,
     fone BIGINT,
@@ -21,7 +21,7 @@ CREATE TABLE requerimento (
     obs CHAR(255),
     diretorio_anexo CHAR(255) NOT NULL,
     situacao TINYINT DEFAULT 0,
-    usuario_id BIGINT NOT NULL,
+    usuario_id CHAR(12) NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuario(id)
 );
 
