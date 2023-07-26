@@ -6,7 +6,7 @@ function head_constructor($title, $su = false)
     $superuser_only = $su;
     $is_sign_in = $title == "sign-in" | $title == "sign-up";
 
-    include "../session_validator.php";
+    include "../_scripts/session_validator.php";
 
     //add if usefull
 
