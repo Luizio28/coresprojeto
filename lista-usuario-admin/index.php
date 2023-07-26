@@ -6,7 +6,7 @@
     include "../_templates/echoer.php";
     include "../_templates/head.php";
 
-    head_constructor("Lista de requerimentos", true);
+    head_constructor("Lista de usuarios", true);
     ?>
 
     <script src="../_js/table_sort.js"></script>
