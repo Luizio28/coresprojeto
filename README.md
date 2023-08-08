@@ -124,6 +124,6 @@
 
 <ul>
   <li>versao 0.x - estruturar funções de comunicação com o banco</li>
-  <li>versao 1.0 - banco de dados e funções basicas estruturadas junto com a interface</li>
-  <li>versao 2.0 - css e interface completa</li>
+  <li>versao 1.x - banco de dados e funções basicas estruturadas junto com a interface</li>
+  <li>versao 2.x - css e interface completa</li>
 </ul>
