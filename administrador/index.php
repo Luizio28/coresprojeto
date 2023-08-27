@@ -30,6 +30,11 @@
                 <a href="../lista-usuario-admin/" class="no-deco">
                     <div class="box">
                         Usuários cadastrados
+                                require_once 'usuarios.php';
+                                $usuarios = getUsuarios();
+                                foreach ($usuarios as $usuario) {
+                                    echo '<li>' . $usuario['nome'] . ' - <a href="editar_usuario.php?id=' . $usuario['id'] . '">Editar</a> | <a href="usuarios.php?acao=remover&id=' . $usuario['id'] . '">Remover</a></li>';
+                                }
                     </div>
                 </a>
             </div>
