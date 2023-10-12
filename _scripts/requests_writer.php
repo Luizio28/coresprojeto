@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['send'])) {
-    include "../_scripts/sql_db_connector.php";
-
+    require_once "../_scripts/sql_db_connector.php";
     try {
         $destination = "temp";
 
@@ -9,14 +8,15 @@ if (isset($_POST['send'])) {
 
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        $statement = $pdo->prepare("INSERT INTO requerimento (objeto, inicio, termino, obs, diretorio_anexo, usuario_id)
-            VALUES (:objeto, :inicio, :termino, :obs, :diretorio_anexo, :usuario_id)");
+        $statement = $pdo->prepare("INSERT INTO requerimento (objeto, inicio, termino, obs, diretorio_anexo, turmaid, usuario_id)
+            VALUES (:objeto, :inicio, :termino, :obs, :diretorio_anexo, :turmaid ,:usuario_id)");
 
         $statement->bindParam(':objeto', $_POST['objeto']);
         $statement->bindParam(':inicio', $_POST['inicio']);
         $statement->bindParam(':termino', $_POST['termino']);
         $statement->bindParam(':obs', $_POST['obs']);
         $statement->bindParam(':diretorio_anexo', $destination);
+        $statement->bindParam(':turmaid', $_SESSION['turmaid']);
         $statement->bindParam(':usuario_id', $_SESSION['id']);
 
         $statement->execute();
@@ -51,7 +51,7 @@ if (isset($_POST['send'])) {
                 $statement->bindParam(':id', $result[0]['id']);
                 $statement->execute();
 
-                header("Location: ../lista-requerimento-usuario/");
+                header("Location: ../lista-requerimento/");
                 exit;
             } else {
                 foreach ($errors as $error) {

@@ -1,7 +1,6 @@
 <table id='table'>
     <?php
-    include "../_scripts/sql_db_connector.php";
-
+    require_once "../_scripts/sql_db_connector.php";
     try {
         $pdo = connect_with_pdo();
 
@@ -21,12 +20,13 @@
                         </th>
                         <th scope='col' onclick='sortTable(1)'>objeto</th>
                         <th scope='col' onclick='sortTable(2)'>usuario</th>
-                        <th scope='col' onclick='sortTable(3)'>registro</th>
-                        <th scope='col' onclick='sortTable(4)'>inicio</th>
-                        <th scope='col' onclick='sortTable(5)'>termino</th>
-                        <th scope='col' onclick='sortTable(6)'>observação</th>
-                        <th scope='col' onclick='sortTable(7)'>anexo</th>
-                        <th scope='col' onclick='sortTable(8)'>situação</th>
+                        <th scope='col' onclick='sortTable(3)'>turma</th>
+                        <th scope='col' onclick='sortTable(4)'>registro</th>
+                        <th scope='col' onclick='sortTable(5)'>inicio</th>
+                        <th scope='col' onclick='sortTable(6)'>termino</th>
+                        <th scope='col' onclick='sortTable(7)'>observação</th>
+                        <th scope='col' onclick='sortTable(8)'>anexo</th>
+                        <th scope='col' onclick='sortTable(9)'>situação</th>
                     </tr>
                 </thead>
                 ";
@@ -43,7 +43,7 @@
                 }
 
                 $situation = "";
-                switch ($row['objeto']) {
+                switch ($row['situacao']) {
                     case "0":
                         $situation = "Indeferido";
                         break;
@@ -58,17 +58,38 @@
                         break;
                 }
 
+                $statement = $pdo->prepare("SELECT turma FROM turma WHERE id = :turmaid");
+                $statement->bindParam(':turmaid', $row['turmaid']);
+                $statement->execute();
+
+                $result2 = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                $turma = $result2[0]['turma'];
+        
                 echo "
             <tr>
                 <td>" . $row['id'] . "</td>
                 <td>" . $object . "</td>
                 <td>" . $row['usuario_id'] . "</td>
+                <td>" . $turma . "</td>
                 <td>" . $row['registro'] . "</td>
                 <td>" . $row['inicio'] . "</td>
                 <td>" . $row['termino'] . "</td>
                 <td class='break-text'>" . $row['obs'] . "</td>
                 <td class='break-text'><a href= ../anexo/" . $row['diretorio_anexo'] . "  target='_blank'>link</a></td>
                 <td>" . $situation . "</td>
+                <td>
+                <form action='../requerimento-apagar' method='post'>
+                    <input name='id' type='hidden' value=".$row['id']."></input>
+                    <button type='submit'>apagar</button>
+                </form>
+                </td>
+                <td>
+                    <form action='../requerimento-alterar' method='post'>
+                        <input name='id' type='hidden' value=".$row['id']."></input>
+                        <button type='submit'>editar</button>
+                    </form>
+                </td>
             </tr>
             ";
 

@@ -44,28 +44,9 @@
                 </div>
 
                 <div class="flex-row spaced-between">
-                    <label for="curso">
-                        Curso
-                    </label>
-
-                    <select name="curso" id="curso">
-                        <option value="1">ED</option>
-                        <option value="2">EI</option>
-                        <option value="3">EMA</option>
-                    </select>
-                </div>
-
-                <div class="flex-row spaced-between">
-                    <label for="turma">
-                        Turma
-                    </label>
-
-                    <select name="turma" id="turma">
-                        <option value="1">1°</option>
-                        <option value="2">2°</option>
-                        <option value="3">3°</option>
-                        <option value="4">4°</option>
-                    </select>
+                    <?php 
+                        include "../_scripts/get_turma.php";
+                    ?>
                 </div>
 
                 <div class="flex-row spaced-between">
@@ -81,13 +62,13 @@
             </form>
 
             <?php
-            include "../_scripts/account_creator.php";
+                include "../_scripts/account_creator.php";
             ?>
         </div>
     </main>
 
     <?php
-    show("../_templates/footer.html");
+        show("../_templates/footer.html");
     ?>
 </body>
 

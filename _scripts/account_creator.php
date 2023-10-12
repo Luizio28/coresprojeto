@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['send'])) {
-    include "../_scripts/sql_db_connector.php";
-
+    require_once "../_scripts/sql_db_connector.php";
     try {
         $pdo = connect_with_pdo();
 
@@ -15,24 +14,24 @@ if (isset($_POST['send'])) {
 
         $is_superuser = $result[0]['count'] == 0 ? 1 : 0;
 
-        $statement = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, curso, turma, superuser, psswd)
-            VALUES (:id, :nome, :email, :fone, :curso, :turma, :superuser, :psswd)");
+        $statement = $pdo->prepare("INSERT INTO usuario (id, nome, email, fone, superuser, psswd, turmaid)
+            VALUES (:id, :nome, :email, :fone, :superuser, :psswd, :turmaid)");
 
 
         $statement->bindParam(':id', $_POST['id']);
         $statement->bindParam(':nome', $_POST['nome']);
         $statement->bindParam(':email', $_POST['email']);
         $statement->bindParam(':fone', $_POST['fone']);
-        $statement->bindParam(':curso', $_POST['curso']);
-        $statement->bindParam(':turma', $_POST['turma']);
         $statement->bindParam(':superuser', $is_superuser);
         $statement->bindParam(':psswd', $hashed_password);
+        $statement->bindParam(':turmaid', $_POST['turmaid']);
 
         $statement->execute();
 
         $directory = $is_superuser ? "administrador" : "usuario";
 
         $_SESSION['id'] = $_POST['id'];
+        $_SESSION['turmaid'] = $_POST['turmaid'];
         $_SESSION['directory'] = $directory;
         $_SESSION['superuser'] = $is_superuser;
 

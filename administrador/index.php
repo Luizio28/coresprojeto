@@ -27,7 +27,7 @@
                         lista de requerimentos
                     </div>
                 </a>
-                <a href="../lista-usuario-admin/" class="no-deco">
+                <a href="../lista-usuario/" class="no-deco">
                     <div class="box">
                         Usuários cadastrados
                     </div>

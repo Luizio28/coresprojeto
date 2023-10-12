@@ -1,7 +1,6 @@
 <?php
 if (isset($_POST['id']) & isset($_POST['psswd'])) {
-    include "../_scripts/sql_db_connector.php";
-
+    require_once "../_scripts/sql_db_connector.php";
     try {
         $pdo = connect_with_pdo();
 
