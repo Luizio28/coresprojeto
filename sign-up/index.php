@@ -54,9 +54,17 @@
                     <input maxlength="255" type="password" name="psswd" id="psswd" required>
                 </div>
 
+                <div class="flex-row spaced-between">
+                    <label for="psswd">Confirmar senha</label>
+                    <input maxlength="255" type="password" name="psswd2" id="psswd2" required>
+                </div>
 
+                <div class="flex-row spaced-between">
+                    <div id="resultado"></div>
+                </div>
+                
                 <div>
-                    <input type="submit" name="send" id="send" value="criar">
+                    <input type="submit" name="send" id="send" value="criar" disabled>
                     <a href="../sign-in/">Já tenho uma conta.</a>
                 </div>
             </form>
@@ -64,6 +72,23 @@
             <?php
                 include "../_scripts/account_creator.php";
             ?>
+
+            <script>//Obtido daqui https://chat.openai.com/share/37a24d2b-382f-4500-a6f0-4126bc06150e
+                function validarSenha() {
+                    var senha1 = document.getElementById("psswd").value;
+                    var senha2 = document.getElementById("psswd2").value;
+
+                    if (senha1 === senha2) {
+                        document.getElementById("resultado").innerHTML = "";
+                        document.getElementById("send").disabled = false;
+                    } else {
+                        document.getElementById("resultado").innerHTML = "As senhas não correspondem.";
+                        document.getElementById("send").disabled = true;
+                    }
+                }
+                document.getElementById("psswd").addEventListener("input", validarSenha);
+                document.getElementById("psswd2").addEventListener("input", validarSenha);
+            </script>
         </div>
     </main>
 
