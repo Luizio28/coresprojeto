@@ -42,7 +42,7 @@
                 }
 
                 $situation = "";
-                switch ($row['objeto']) {
+                switch ($row['situacao']) {
                     case "0":
                         $situation = "Indeferido";
                         break;
