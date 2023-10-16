@@ -25,7 +25,7 @@
         <div class="flex-column">
             <h1>Requerimentos</h1>
 
-            <?php include "../_scripts/requests_reader.php"; ?>
+            <?php include "../_scripts/request_reader.php"; ?>
 
             <a href="../administrador">voltar</a>
         </div>

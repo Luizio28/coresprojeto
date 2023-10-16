@@ -1,43 +1,56 @@
-<?php
-if (isset($_POST['id']) & isset($_POST['psswd'])) {
+<table id='table'>
+    <thead>
+        <tr>
+            <th scope='col' onclick='sortTable(0)'>id</th>
+            <th scope='col' onclick='sortTable(1)'>turma</th>
+            <th scope='col' onclick='sortTable(2)'>nome</th>
+            <th scope='col' onclick='sortTable(3)'>email</th>
+            <th scope='col' onclick='sortTable(4)'>fone</th>
+            <th scope='col' onclick='sortTable(5)'>admin</th>
+        </tr>
+    </thead>
+
+    <?php
     require_once "../_scripts/sql_db_connector.php";
     try {
         $pdo = connect_with_pdo();
 
-        $statement = $pdo->prepare("SELECT psswd,superuser FROM usuario WHERE id=:id");
-
-        $statement->bindParam(':id', $_POST['id']);
-
+        $statement = $pdo->prepare("SELECT id,nome,email,fone,superuser,turmaid FROM usuario");
         $statement->execute();
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        $valid_username = count($result) == 1;
 
-        if ($valid_username) {
-            $valid_password = password_verify($_POST['psswd'], $result[0]['psswd']);
+        foreach ($result as $row) {
+            $statement = $pdo->prepare("SELECT turma FROM turma WHERE id = :turmaid");
+            $statement->bindParam(':turmaid', $row['turmaid']);
+            $statement->execute();
 
-            if ($valid_password) {
-                $directory = $result[0]['superuser'] == 1 ? "administrador" : "usuario";
+            $result2 = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-                $_SESSION['id'] = $_POST['id'];
-                $_SESSION['directory'] = $directory;
-                $_SESSION['superuser'] = $result[0]['superuser'];
+            $turma = $result2[0]['turma'];
 
-                header("Location: ../$directory/");
-                exit;
-            }
+            echo "
+            <tr>
+                <td>" . $row['id'] . "</td>
+                <td>" . $row['turmaid'] . "</td>
+                <td>" . $row['nome'] . "</td>
+                <td>" . $row['email'] . "</td>
+                <td>" . $row['fone'] . "</td>
+                <td class='break-text'>" . $row['superuser'] . "</td>
+                <td>
+                    <form action='../usuario-alterar' method='get'>
+                        <input name='id' type='hidden' value=".$row['id']."></input>
+                        <button type='submit'>editar</button>
+                    </form>
+                </td>
+            </tr>
+            </tr>
+            ";
         }
-        echo "
-        <div class='flex-column'>
-            <h1>ERRO</h1>
-            
-            <div class='box flex-column'>
-                <p>Credenciais inválidas</p>
-            </div>
-        </div>
-        ";
     } catch (PDOException $exception) {
         handle_pdo_exception($exception);
     }
-}
+
+    ?>
+</table>

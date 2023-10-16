@@ -44,7 +44,7 @@
             </form>
 
             <?php
-            include "../_scripts/account_reader.php";
+            include "../_scripts/account_checker.php";
             ?>
         </div>
     </main>

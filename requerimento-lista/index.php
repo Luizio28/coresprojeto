@@ -25,7 +25,7 @@
         <div class="flex-column">
             <h1>Meus Requerimentos</h1>
 
-            <?php include "../_scripts/requests_reader_own.php"; ?>
+            <?php include "../_scripts/request_reader_own.php"; ?>
 
             <a href="../usuario">voltar</a>
         </div>

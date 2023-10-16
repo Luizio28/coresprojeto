@@ -73,7 +73,7 @@
             </form>
 
             <?php
-            include "../_scripts/requests_writer.php";
+            include "../_scripts/request_writer.php";
             ?>
         </div>
     </main>

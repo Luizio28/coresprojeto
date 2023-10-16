@@ -24,7 +24,7 @@
 
             <form enctype="multipart/form-data" id="create-new" class="center-flex flex-column box" method="post">
 
-            <?php include "../_scripts/requests_remover.php";?>
+            <?php include "../_scripts/request_remover.php";?>
 
                 <div>
                     <input type="submit" name="send" id="send" value="sim">

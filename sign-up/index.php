@@ -70,7 +70,7 @@
             </form>
 
             <?php
-                include "../_scripts/account_creator.php";
+                include "../_scripts/account_writer.php";
             ?>
 
             <script>//Obtido daqui https://chat.openai.com/share/37a24d2b-382f-4500-a6f0-4126bc06150e

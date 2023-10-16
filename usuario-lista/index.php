@@ -24,7 +24,7 @@
         <div class="flex-column">
             <h1>Usuarios</h1>
 
-            <?php include "../_scripts/users_reader.php"; ?>
+            <?php include "../_scripts/account_reader.php"; ?>
 
             <a href="../administrador">voltar</a>
         </div>

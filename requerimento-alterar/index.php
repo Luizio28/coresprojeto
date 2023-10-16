@@ -24,7 +24,7 @@
 
             <form enctype="multipart/form-data" id="create-new" class="center-flex flex-column box" method="post">
 
-            <?php include "../_scripts/requests_editor.php" ?>
+            <?php include "../_scripts/request_editor.php" ?>
 
                 <div class="spaced-between flex-row">
                     <label for="situacao" title="O tipo de requerimento que está sendo feito">
