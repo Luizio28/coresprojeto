@@ -6,10 +6,10 @@
     include "../_templates/echoer.php";
     include "../_templates/head.php";
 
-    head_constructor("Novo requerimento");
+    head_constructor("Nova foto");
     ?>
 
-    <meta name="description" id="description" content="Essa é a página em que requerimentos são escritos e enviados pelos usuários para CORES do IFBA Campus Eunápolis">
+    <meta name="description" id="description" content="Essa é a página em que a foto de perfil dos usuários é alterada para CORES do IFBA Campus Eunápolis">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
     <main>
         <div class="flex-column">
-            <h1>Novo requerimento</h1>
+            <h1>Nova foto</h1>
 
             <form enctype="multipart/form-data" id="create-new" class="center-flex flex-column box" method="post">
                 <!-- ... outras partes do formulário ... -->
