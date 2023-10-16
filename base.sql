@@ -18,6 +18,7 @@ CREATE TABLE usuario (
     fone BIGINT,
     superuser BOOLEAN DEFAULT 0,
     psswd CHAR(255) NOT NULL,
+    diretorio_foto CHAR(255),
     turmaid INT,
     FOREIGN KEY (turmaid) REFERENCES turma(id)
 );
