@@ -10,6 +10,10 @@
 
                 "<p>" . $_SESSION['id'] . "</p>" .
 
+                "<button id='change-profile-photo' class='no-deco unselectable'>
+                    <a href='../adicionar-foto/'><span class='material-symbols-rounded'>add_a_photo</span></a>
+                </button>" .
+
                 "<a href='../_scripts/sign_out.php' class='no-deco unselectable'>
                     <span class='material-symbols-rounded'>logout</span>
                 </a>
