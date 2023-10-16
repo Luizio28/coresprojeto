@@ -10,11 +10,17 @@ if (isset($_POST['send'])) {
             $maxsize    = 4194304; //4 mb
             $acceptable = array('application/pdf');
 
-            if (($_FILES['anexo']['size'] >= $maxsize) || ($_FILES["anexo"]["size"] == 0)) {
+            $bigger_than_it_should = $_FILES['anexo']['size'] >= $maxsize;
+            $null_size = $_FILES["anexo"]["size"] == 0;
+
+            $is_acceptable_filetype = !in_array($_FILES['anexo']['type'], $acceptable);
+            $is_not_null_filetype = !empty($_FILES["anexo"]["type"]);
+
+            if ($bigger_than_it_should || $null_size) {
                 $errors[] = 'Arquivo muito grande, o limite é 4 MB.';
             }
 
-            if ((!in_array($_FILES['anexo']['type'], $acceptable)) && (!empty($_FILES["anexo"]["type"]))) {
+            if ($is_acceptable_filetype && $is_not_null_filetype) {
                 $errors[] = 'Arquivo invalido, o único tipo de arquivo que aceitamos é PDF.';
             }
 
