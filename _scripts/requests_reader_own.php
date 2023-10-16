@@ -5,7 +5,7 @@
     try {
         $pdo = connect_with_pdo();
 		
-        $statement = $pdo->prepare("SELECT * FROM requerimento WHERE usuario_id = ".$_SESSION['id']."");
+        $statement = $pdo->prepare("SELECT objeto, inicio, termino, registro, obs, diretorio_anexo, situacao FROM requerimento WHERE usuario_id = ".$_SESSION['id']."");
         $statement->execute();
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -13,19 +13,13 @@
         if (count($result) > 0) {
             echo "
                 <thead>
-                    <tr>
-                        <th scope='col' onclick='sortTable(0)'>
-                            <span class='material-symbols-outlined unselectable'>
-                            unfold_more
-                            </span>
-                        </th>
-                        <th scope='col' onclick='sortTable(1)'>objeto</th>
-                        <th scope='col' onclick='sortTable(2)'>registro</th>
-                        <th scope='col' onclick='sortTable(3)'>inicio</th>
-                        <th scope='col' onclick='sortTable(4)'>termino</th>
-                        <th scope='col' onclick='sortTable(5)'>observação</th>
-                        <th scope='col' onclick='sortTable(6)'>anexo</th>
-                        <th scope='col' onclick='sortTable(7)'>situação</th>
+                        <th scope='col' onclick='sortTable(0)'>objeto</th>
+                        <th scope='col' onclick='sortTable(1)'>registro</th>
+                        <th scope='col' onclick='sortTable(2)'>inicio</th>
+                        <th scope='col' onclick='sortTable(3)'>termino</th>
+                        <th scope='col' onclick='sortTable(4)'>observação</th>
+                        <th scope='col' onclick='sortTable(5)'>anexo</th>
+                        <th scope='col' onclick='sortTable(6)'>situação</th>
                     </tr>
                 </thead>
                 ";
@@ -59,7 +53,6 @@
 
                 echo "
             <tr>
-                <td>" . $row['id'] . "</td>
                 <td>" . $object . "</td>
                 <td>" . $row['registro'] . "</td>
                 <td>" . $row['inicio'] . "</td>
