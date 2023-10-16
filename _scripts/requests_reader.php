@@ -9,6 +9,11 @@
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+        $statement = $pdo->prepare("SELECT turma FROM turma");
+        $statement->execute();
+
+        $turmas = $statement->fetchAll(PDO::FETCH_ASSOC);
+
         if (count($result) > 0) {
             echo "
                 <thead>
@@ -58,13 +63,9 @@
                         break;
                 }
 
-                $statement = $pdo->prepare("SELECT turma FROM turma WHERE id = :turmaid");
-                $statement->bindParam(':turmaid', $row['turmaid']);
-                $statement->execute();
+                $index = $row['turmaid'] != 0? $row['turmaid'] - 1 : 0;
 
-                $result2 = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-                $turma = $result2[0]['turma'];
+                $turma = $turmas[$index]['turma'];
         
                 echo "
             <tr>
