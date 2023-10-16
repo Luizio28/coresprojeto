@@ -35,7 +35,7 @@ if (isset($_POST['send'])) {
         
                 $statement->execute();
         
-                $statement = $pdo->prepare("SELECT * FROM requerimento WHERE usuario_id = " . $_SESSION['id'] . " ORDER BY id DESC LIMIT 1");
+                $statement = $pdo->prepare("SELECT id, registro FROM requerimento WHERE usuario_id = " . $_SESSION['id'] . " ORDER BY id DESC LIMIT 1");
                 $statement->execute();
                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
