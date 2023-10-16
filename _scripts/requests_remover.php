@@ -12,5 +12,5 @@ if (isset($_POST['send'])) {
     header("Location: ../lista-requerimento-admin");
     exit;
 }else{
-    echo "<input name='id' type='hidden' value='".$_POST['id']."'>";
+    echo "<input name='id' type='hidden' value='".$_GET['id']."'>";
 }

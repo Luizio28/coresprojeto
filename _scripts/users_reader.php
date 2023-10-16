@@ -39,7 +39,7 @@
                 <td>" . $row['fone'] . "</td>
                 <td class='break-text'>" . $row['superuser'] . "</td>
                 <td>
-                    <form action='../usuario-alterar' method='post'>
+                    <form action='../usuario-alterar' method='get'>
                         <input name='id' type='hidden' value=".$row['id']."></input>
                         <button type='submit'>editar</button>
                     </form>

@@ -79,13 +79,13 @@
                 <td class='break-text'><a href= ../anexo/" . $row['diretorio_anexo'] . "  target='_blank'>link</a></td>
                 <td>" . $situation . "</td>
                 <td>
-                <form action='../requerimento-apagar' method='post'>
+                <form action='../requerimento-apagar' method='get'>
                     <input name='id' type='hidden' value=".$row['id']."></input>
                     <button type='submit'>apagar</button>
                 </form>
                 </td>
                 <td>
-                    <form action='../requerimento-alterar' method='post'>
+                    <form action='../requerimento-alterar' method='get'>
                         <input name='id' type='hidden' value=".$row['id']."></input>
                         <button type='submit'>editar</button>
                     </form>
