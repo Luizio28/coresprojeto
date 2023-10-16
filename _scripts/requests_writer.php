@@ -3,7 +3,6 @@ if (isset($_POST['send'])) {
     require_once "../_scripts/sql_db_connector.php";
     try {
         $pdo = connect_with_pdo();
-        
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
         if (isset($_FILES['anexo'])) {
@@ -20,8 +19,15 @@ if (isset($_POST['send'])) {
             }
 
             if (count($errors) === 0) {
-                $destination = "temp";
-        
+                $temp = explode(".", $_FILES['anexo']['name']);
+
+                $filename = $_SESSION['id'] . "_" . date("y.m.d_h.m.s") . '.' . end($temp);
+                $filename = preg_replace("/[^a-zA-Z0-9_.]/", "_", $filename);
+
+                $destination = "../anexo/" . $filename;
+
+                move_uploaded_file($_FILES['anexo']['tmp_name'], $destination);
+
                 $statement = $pdo->prepare("INSERT INTO requerimento (objeto, inicio, termino, obs, diretorio_anexo, turmaid, usuario_id)
                     VALUES (:objeto, :inicio, :termino, :obs, :diretorio_anexo, :turmaid ,:usuario_id)");
         
@@ -33,23 +39,6 @@ if (isset($_POST['send'])) {
                 $statement->bindParam(':turmaid', $_SESSION['turmaid']);
                 $statement->bindParam(':usuario_id', $_SESSION['id']);
         
-                $statement->execute();
-        
-                $statement = $pdo->prepare("SELECT id, registro FROM requerimento WHERE usuario_id = " . $_SESSION['id'] . " ORDER BY id DESC LIMIT 1");
-                $statement->execute();
-                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-                $temp = explode(".", $_FILES['anexo']['name']);
-                $filename = $result[0]['id'] . "_" . $_SESSION['id'] . "_" . $result[0]['registro'] . '.' . end($temp);
-                $filename = preg_replace("/[^a-zA-Z0-9_.]/", "_", $filename);
-                $destination = "../anexo/" . $filename;
-
-                move_uploaded_file($_FILES['anexo']['tmp_name'], $destination);
-
-                $statement = $pdo->prepare("UPDATE requerimento SET diretorio_anexo = :diretorio_anexo WHERE id = :id");
-                $statement->bindParam(':diretorio_anexo', $destination);
-                $statement->bindParam(':id', $result[0]['id']);
                 $statement->execute();
 
                 header("Location: ../lista-requerimento/");
