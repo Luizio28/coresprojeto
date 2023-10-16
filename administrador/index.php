@@ -22,12 +22,12 @@
         <div class="flex-column">
             <h1>Painel de controle</h1>
             <div class="flex-row">
-                <a href="../lista-requerimento-admin/" class="no-deco">
+                <a href="../requerimento-lista-admin/" class="no-deco">
                     <div class="box">
                         lista de requerimentos
                     </div>
                 </a>
-                <a href="../lista-usuario/" class="no-deco">
+                <a href="../usuario-lista/" class="no-deco">
                     <div class="box">
                         Usuários cadastrados
                     </div>

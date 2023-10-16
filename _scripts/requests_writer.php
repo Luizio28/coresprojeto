@@ -47,7 +47,7 @@ if (isset($_POST['send'])) {
         
                 $statement->execute();
 
-                header("Location: ../lista-requerimento/");
+                header("Location: ../requerimento-lista/");
                 exit;
             } else {
                 foreach ($errors as $error) {

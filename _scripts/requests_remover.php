@@ -9,7 +9,7 @@ if (isset($_POST['send'])) {
 
     $statement->execute();
 
-    header("Location: ../lista-requerimento-admin");
+    header("Location: ../requerimento-lista-admin");
     exit;
 }else{
     echo "<input name='id' type='hidden' value='".$_GET['id']."'>";

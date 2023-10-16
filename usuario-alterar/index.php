@@ -40,7 +40,7 @@
 
                 <div>
                     <input type="submit" name="send" id="send" value="salvar">
-					<a href="../lista-usuario">voltar</a>
+					<a href="../usuario-lista">voltar</a>
                 </div>
             </form>
         </div>

@@ -28,7 +28,7 @@
 
                 <div>
                     <input type="submit" name="send" id="send" value="sim">
-					<a href="../lista-requerimento-admin">não</a>
+					<a href="../requerimento-lista-admin">não</a>
                 </div>
             </form>
         </div>

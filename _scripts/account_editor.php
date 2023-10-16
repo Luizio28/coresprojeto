@@ -11,7 +11,7 @@ if (isset($_POST['send'])) {
 
     $statement->execute();
     
-    header('Location: ../lista-usuario');
+    header('Location: ../usuario-lista');
     exit;
 }else{
     echo "<input name='id' type='hidden' value='".$_GET['id']."'>";
