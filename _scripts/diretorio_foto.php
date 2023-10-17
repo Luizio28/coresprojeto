@@ -8,14 +8,14 @@ if (isset($_POST['send'])) {
         if (isset($_FILES['foto_perfil'])) {
             $errors = array();
             $maxsize = 1048576; // 1 MB
-            $acceptableTypes = array('image/jpeg', 'image/png', 'image/gif');
+            $acceptableTypes = array('image/png');
 
             if ($_FILES['foto_perfil']['size'] > $maxsize) {
                 $errors[] = 'Arquivo muito grande, o limite é 1 MB.';
             }
 
             if (!in_array($_FILES['foto_perfil']['type'], $acceptableTypes)) {
-                $errors[] = 'Tipo de arquivo inválido. Apenas JPEG, PNG e GIF são permitidos.';
+                $errors[] = 'Tipo de arquivo inválido. Apenas PNG é permitido.';
             }
 
             if (count($errors) === 0) {
