@@ -33,14 +33,14 @@
                 </div>
 
                 <div>
-                    <input type="submit" name="send" id="send" value="criar">
+                    <input type="submit" name="send" id="send" value="salvar">
                     <input type="reset" value="reset">
                     <a href="../usuario">voltar</a>
                 </div>
             </form>
 
             <?php
-            include "../_scripts/requests_writer.php";
+            include "../_scripts/diretorio_foto.php";
             ?>
         </div>
     </main>

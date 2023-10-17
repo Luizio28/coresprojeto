@@ -4,21 +4,24 @@
 
         <?php
         if (isset($_SESSION['id'])) {
+            $diretorio_foto = "../foto/".$_SESSION['id'].".png";
             echo "
-            <nav class='flex-row'>
-                <span class='material-symbols-rounded unselectable'>account_circle</span>" .
+            <nav class='flex-row'>".
 
-                "<p>" . $_SESSION['id'] . "</p>" .
+            "<a href='../_scripts/sign_out.php' class='no-deco'>
+            sair
+            </a>".
 
-                "<button id='change-profile-photo' class='no-deco unselectable'>
-                    <a href='../adicionar-foto/'><span class='material-symbols-rounded'>add_a_photo</span></a>
-                </button>" .
+                "<p>" . $_SESSION['id'] . "</p>";
+            if (!file_exists($diretorio_foto)){
+                echo "<a href='../adicionar-foto/' class='no-deco'>adicionar foto</a>";
+            }else{
+                echo "<button id='change-profile-photo' class='no-deco'>".
+                        "<a href='../adicionar-foto/'><img id='profile-photo' src='$diretorio_foto' alt='foto de perfil'></a>".
+                     "</button>";
+            }
 
-                "<a href='../_scripts/sign_out.php' class='no-deco unselectable'>
-                    <span class='material-symbols-rounded'>logout</span>
-                </a>
-            </nav>
-            ";
+            echo "</nav>";
         }
         ?>
     </div>

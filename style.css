@@ -129,6 +129,8 @@ select:hover {
 
 .no-deco {
     text-decoration: none;
+    border: none;
+    background-color: var(--p-white-01);
     color: var(--p-black-01);
 }
 
@@ -153,4 +155,10 @@ select:hover {
 
 #anexo:hover + #tp0{
 	visibility:visible;
+}
+
+#profile-photo{
+    aspect-ratio: 1;
+    height: 5em;
+    border-radius: 50%;
 }
